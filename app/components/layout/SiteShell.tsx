@@ -25,7 +25,7 @@ export function SiteShell({ children }: { children: ReactNode }): ReactElement {
         <PageTransition key={pathname}>{children}</PageTransition>
       </main>
 
-      <footer className="border-t border-hairline/60 py-8 pb-[calc(1.5rem+var(--tabbar-height))] md:pb-8">
+      <footer className="border-t border-hairline py-8 pb-[calc(1.5rem+var(--tabbar-height))] md:pb-8">
         <div className="container-page flex flex-col items-center justify-between gap-4 text-sm text-foreground-subtle sm:flex-row">
           <p>
             <span className="text-foreground-muted">ASEAN ONE</span> — One ASEAN. Every Opportunity.

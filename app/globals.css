@@ -67,6 +67,7 @@ body {
   --color-ocean-800: var(--color-ocean-800);
   --color-foreground: var(--color-foreground);
   --color-foreground-muted: var(--color-foreground-muted);
+  --color-foreground-subtle: var(--color-foreground-subtle);
 }
 @utility container-page {
   width: 100%;
