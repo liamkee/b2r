@@ -15,3 +15,19 @@ describe("consolidation tokens", () => {
     expect(pkg.dependencies["topojson-client"]).toBeDefined();
   });
 });
+import { DURATION, SPRING, fadeUp, staggerList } from "@/lib/motion";
+import { cn } from "@/lib/cn";
+import { NAV_ITEMS } from "@/lib/nav";
+describe("motion helpers", () => {
+  it("exports spring presets", () => {
+    expect(SPRING.stiffness).toBe(350);
+    expect(DURATION.base).toBe(0.3);
+    expect(fadeUp.visible).toBeDefined();
+    expect(staggerList.visible).toBeDefined();
+  });
+  it("cn joins", () => { expect(cn("a", false, "b")).toBe("a b"); });
+  it("nav has Next routes", () => {
+    expect(NAV_ITEMS.map(n => n.path)).toContain("/");
+    expect(NAV_ITEMS.length).toBe(4);
+  });
+});
