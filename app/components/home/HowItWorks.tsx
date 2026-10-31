@@ -13,7 +13,7 @@ interface Step {
 const STEPS: readonly Step[] = [
   {
     title: "Describe your startup",
-    body: "Plain language. Stage, sector, where you are and where you want to go.",
+    body: "Answer five questions about industry, countries, product, revenue and scaling goals.",
     icon: (
       <>
         <path d="M4 6h16M4 11h11M4 16h7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
@@ -21,8 +21,8 @@ const STEPS: readonly Step[] = [
     ),
   },
   {
-    title: "AI finds ranked matches",
-    body: "Investors, grants, accelerators and partners — grouped by country, with the reasoning shown.",
+    title: "Review the evidence",
+    body: "Regulation, demand and competitor context — grouped by country, with sources and gaps shown.",
     icon: (
       <>
         <circle cx="11" cy="11" r="6.5" stroke="currentColor" strokeWidth="1.8" fill="none" />
@@ -31,8 +31,8 @@ const STEPS: readonly Step[] = [
     ),
   },
   {
-    title: "Take action",
-    body: "Save what matters, draft outreach, and move your pipeline forward.",
+    title: "Plan your validation",
+    body: "Compare the findings and agree measurable research or pilot conditions.",
     icon: (
       <>
         <path d="M4 12.5l5 5L20 6.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />

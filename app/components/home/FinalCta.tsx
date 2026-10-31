@@ -47,8 +47,8 @@ export function FinalCta(): ReactElement {
             variants={fadeUp}
             className="relative mx-auto mt-4 max-w-xl text-lg text-foreground-muted"
           >
-            Get ranked opportunities, the regulation you need to clear, and the
-            market signals worth checking — grouped by country.
+            Review regulation, market signals and competitor evidence, with
+            gaps and next checks — grouped by your selected countries.
           </motion.p>
 
           <motion.div

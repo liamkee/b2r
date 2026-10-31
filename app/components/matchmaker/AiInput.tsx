@@ -4,17 +4,16 @@ import { useEffect, useId, useRef, useState } from "react";
 import type { FormEvent, ReactElement } from "react";
 import { Chip, ChipRow } from "@/app/components/ui/Chip";
 import { COUNTRY_META, ALL_COUNTRIES } from "@/lib/country-meta";
-import { FOCUS_OPTIONS } from "@/lib/api";
 import type { FocusKey } from "@/lib/api";
 import { DURATION, EASE, SPRING } from "@/lib/motion";
 
 /** Example prompts cycled through the placeholder. */
 const EXAMPLES = [
-  "I'm a pre-seed fintech in Malaysia expanding to Indonesia...",
-  "We build climate-tech hardware and need grants in Singapore...",
-  "Looking for an accelerator for a health startup in Vietnam...",
-  "A B2B SaaS in the Philippines seeking its first institutional round...",
-  "Agri-tech in Thailand, looking for distribution partners in Laos...",
+  "Inventory software for restaurant groups considering Malaysia and Thailand...",
+  "We build climate-tech hardware and want to test demand in Singapore...",
+  "Hospital procurement software for healthcare teams in Vietnam...",
+  "B2B software for retailers considering the Philippines...",
+  "Agri-tech tools for farmers considering Thailand and Laos...",
 ] as const;
 
 const ROTATE_MS = 3800;
@@ -62,7 +61,7 @@ export function AiInput({
 }: AiInputProps): ReactElement {
   const [text, setText] = useState(defaultValue);
   const [markets, setMarkets] = useState<string[]>(defaultMarkets);
-  const [focus, setFocus] = useState<FocusKey[]>(defaultFocus);
+  const focus = defaultFocus;
   const [exampleIndex, setExampleIndex] = useState(0);
   const [isFocused, setIsFocused] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -97,16 +96,6 @@ export function AiInput({
     setMarkets((prev) =>
       prev.includes(code) ? prev.filter((c) => c !== code) : [...prev, code],
     );
-
-  const toggleFocus = (key: FocusKey): void =>
-    setFocus((prev) => {
-      if (prev.includes(key)) {
-        /* Opportunities is the anchor; keep at least it selected. */
-        if (key === "opportunities") return prev;
-        return prev.filter((f) => f !== key);
-      }
-      return [...prev, key];
-    });
 
   const handleSubmit = (event?: FormEvent<HTMLFormElement>): void => {
     event?.preventDefault();
@@ -189,7 +178,7 @@ export function AiInput({
           whileHover={reduced ? undefined : { scale: 1.04 }}
           transition={SPRING}
           className="mb-0.5 grid size-11 shrink-0 place-items-center rounded-full bg-gold-400 text-black transition-colors duration-200 hover:bg-gold-300 disabled:opacity-60"
-          aria-label={busy ? "Finding matches" : "Find matches"}
+          aria-label={busy ? "Preparing research" : "Continue to Match"}
         >
           {busy ? (
             <span className="size-4 animate-spin rounded-full border-2 border-black/30 border-t-black" />
@@ -216,28 +205,10 @@ export function AiInput({
         <div className="mt-5 space-y-4">
           <div>
             <p className="mb-2 text-xs font-semibold tracking-widest text-foreground-subtle uppercase">
-              Focus
-            </p>
-            <ChipRow ariaLabel="What the AI should cover">
-              {FOCUS_OPTIONS.map((f) => (
-                <Chip
-                  key={f.id}
-                  active={focus.includes(f.id)}
-                  onClick={() => toggleFocus(f.id)}
-                  disabled={f.id === "opportunities"}
-                >
-                  {f.label}
-                </Chip>
-              ))}
-            </ChipRow>
-          </div>
-
-          <div>
-            <p className="mb-2 text-xs font-semibold tracking-widest text-foreground-subtle uppercase">
               Target markets <span className="normal-case">(optional)</span>
             </p>
             <ChipRow ariaLabel="Target markets">
-              {ALL_COUNTRIES.filter((c) => c.onMap).map((c) => (
+              {ALL_COUNTRIES.map((c) => (
                 <Chip
                   key={c.code}
                   active={markets.includes(c.code)}

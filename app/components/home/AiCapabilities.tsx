@@ -16,8 +16,8 @@ interface Capability {
  */
 const CAPABILITIES: readonly Capability[] = [
   {
-    title: "Opportunity matching",
-    body: "Investors, grants, accelerators and partners ranked for your stage and sector.",
+    title: "Country-entry research",
+    body: "Compare selected markets using sourced evidence and explicit research gaps.",
     icon: (
       <>
         <circle cx="12" cy="12" r="8.5" stroke="currentColor" strokeWidth="1.7" fill="none" />
@@ -28,7 +28,7 @@ const CAPABILITIES: readonly Capability[] = [
   },
   {
     title: "Government regulations",
-    body: "Licensing, ownership and data rules per market, each with an official source.",
+    body: "Establishment, ownership and data-rule summaries with source links and review limits.",
     icon: (
       <>
         <path d="M12 3.5 4.5 7v5.5c0 4.2 3 7.4 7.5 8.5 4.5-1.1 7.5-4.3 7.5-8.5V7L12 3.5z" stroke="currentColor" strokeWidth="1.7" fill="none" strokeLinejoin="round" />
@@ -38,7 +38,7 @@ const CAPABILITIES: readonly Capability[] = [
   },
   {
     title: "Market demand",
-    body: "Size, adoption and payment behaviour, drawn from public statistics.",
+    body: "Dated economic and sector signals, with product demand left for validation.",
     icon: (
       <>
         <path d="M4 19h16" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
@@ -48,7 +48,7 @@ const CAPABILITIES: readonly Capability[] = [
   },
   {
     title: "Competitor analysis",
-    body: "Who you are up against in each market, and where the defensible wedge is.",
+    body: "Relevant offering examples and customer-job overlap to investigate.",
     icon: (
       <>
         <circle cx="8.5" cy="9" r="3.2" stroke="currentColor" strokeWidth="1.7" fill="none" />
@@ -71,7 +71,7 @@ export function AiCapabilities(): ReactElement {
         className="mx-auto max-w-2xl text-center"
       >
         <motion.p variants={fadeUp} className="text-xs font-semibold tracking-widest text-gold-400 uppercase">
-          What the AI can do
+          What the research covers
         </motion.p>
         <motion.h2 id="ai-capabilities" variants={fadeUp} className="mt-3 text-3xl sm:text-4xl">
           Four angles on every market

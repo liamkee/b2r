@@ -126,11 +126,11 @@ export function ProblemToSolution(): ReactElement {
               </li>
               <li className="flex gap-2">
                 <span className="text-gold-400" aria-hidden="true">—</span>
-                Every regulation entry carries its source link and a verified date.
+                Research summaries show their sources, dates and verification limits.
               </li>
               <li className="flex gap-2">
                 <span className="text-gold-400" aria-hidden="true">—</span>
-                Ranked matches with the reasoning shown, not just a list.
+                Evidence comparisons with clear gaps and proposed validation tests.
               </li>
             </ul>
           </GlassCard>

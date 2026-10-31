@@ -4,7 +4,7 @@ import { test, expect } from "@playwright/test";
 // Future feature videos (OpenScreen) will drive from this baseline.
 test("homepage shows B2R hero and country grid", async ({ page }) => {
   await page.goto("/");
-  await expect(page).toHaveTitle(/B2R ASEAN Intelligence/);
+  await expect(page).toHaveTitle(/ASEAN ONE/);
   await expect(
     page.getByRole("heading", { name: /One ASEAN/i }),
   ).toBeVisible();

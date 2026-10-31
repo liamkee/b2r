@@ -9,8 +9,8 @@ import { fadeUp, staggerListTight, VIEWPORT } from "@/lib/motion";
 /** The figures shown in the strip, all derived from the catalogue. */
 function stats() {
   return [
-    { value: totalOpportunities(), label: "Opportunities" },
-    { value: coveredCountries(), label: "Countries" },
+    { value: totalOpportunities(), label: "Illustrative listings" },
+    { value: coveredCountries(), label: "Countries with demo listings" },
     { value: CATEGORIES.length, label: "Categories" },
   ];
 }

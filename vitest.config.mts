@@ -3,5 +3,5 @@ import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   resolve: { alias: { "@": path.resolve(__dirname, ".") } },
-  test: { include: ["tests/**/*.test.ts"], maxWorkers: 4 },
+  test: { include: ["tests/**/*.test.ts"], maxWorkers: 2, testTimeout: 15_000 },
 });

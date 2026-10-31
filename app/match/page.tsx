@@ -2,9 +2,9 @@ import { Suspense } from "react";
 import { MatchPage } from "./MatchPage";
 
 export const metadata = {
-  title: "AI Matchmaker — ASEAN ONE",
+  title: "Market research — ASEAN ONE",
   description:
-    "Describe your startup and get ranked opportunities, regulation, market and competitor context across ASEAN.",
+    "Compare sourced regulation, demand and competitor evidence for your business across ASEAN.",
 };
 
 /** `useSearchParams` needs a Suspense boundary in the App Router. */

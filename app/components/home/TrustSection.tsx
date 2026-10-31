@@ -16,12 +16,12 @@ interface Point {
  */
 const POINTS: readonly Point[] = [
   {
-    title: "Verified sources",
+    title: "Traceable evidence",
     body: (
       <>
-        Every regulation entry carries its official source link and the date we
-        last checked it. Where a link has not been confirmed, the entry is
-        marked unverified rather than presented as fact.
+        Research findings link to their source records and show editorial dates
+        and access limitations. An editorial review date does not establish
+        current legal clearance.
       </>
     ),
     icon: (
@@ -32,12 +32,12 @@ const POINTS: readonly Point[] = [
     ),
   },
   {
-    title: "Open-weight AI",
+    title: "Evidence first, optional AI",
     body: (
       <>
-        The matching runs on open-weight models, so the approach is
-        inspectable and can be self-hosted if you would rather not send data
-        to a hosted provider.
+        Local keyword retrieval works without a model key. Optional model
+        analysis requires server configuration and usage controls; results
+        identify evidence-only mode and uncertainty.
       </>
     ),
     icon: (
@@ -48,11 +48,12 @@ const POINTS: readonly Point[] = [
     ),
   },
   {
-    title: "Your description stays private",
+    title: "Clear data handling",
     body: (
       <>
-        What you type in the box is used to produce your matches. It is not
-        shown to other users and is not attached to the opportunity listings.
+        Submitted answers are processed by the server and, when enabled, the
+        model provider. Saved drafts remain in this browser; clear them on a
+        shared device. The research endpoint does not save business profiles.
       </>
     ),
     icon: (

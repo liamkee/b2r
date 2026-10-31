@@ -37,7 +37,7 @@ export function AskAiFab(): ReactElement {
     window.setTimeout(() => input?.focus(), reduced ? 0 : 420);
   };
 
-  const show = visible && pathname !== "/match";
+  const show = visible && pathname === "/";
 
   return (
     <AnimatePresence>

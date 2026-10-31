@@ -32,8 +32,8 @@ export default function Home() {
             One ASEAN. <span className="text-gradient-gold">Every Opportunity.</span>
           </h1>
           <p className="mt-5 max-w-xl text-lg text-foreground-muted">
-            Describe your startup once and get ranked opportunities,
-            regulation, market demand and competitors — grouped by country.
+            Explore where your business could grow, with sourced research on
+            regulation, market demand and competitors across ASEAN.
           </p>
           <div className="mt-8">
             <HeroAiInput />

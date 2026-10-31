@@ -43,10 +43,10 @@ export function FeaturedRail(): ReactElement {
       >
         <div>
           <motion.p variants={fadeUp} className="text-xs font-semibold tracking-widest text-gold-400 uppercase">
-            Featured
+            Illustrative catalogue
           </motion.p>
           <motion.h2 id="featured" variants={fadeUp} className="mt-3 text-3xl sm:text-4xl">
-            A spread across the region
+            Programmes to investigate
           </motion.h2>
         </div>
         <motion.div variants={fadeUp}>

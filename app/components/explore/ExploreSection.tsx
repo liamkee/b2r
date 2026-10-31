@@ -74,10 +74,10 @@ export function ExploreSection({
             {country ? "Selected market" : "ASEAN-wide"}
           </p>
           <h2 className="mt-1.5 text-2xl">
-            {country ? countryLabel : "All ten member states"}
+            {country ? countryLabel : "All eleven member states"}
           </h2>
           <p className="mt-1 text-sm text-foreground-muted">
-            {total} {total === 1 ? "opportunity" : "opportunities"}
+            {total} {total === 1 ? "illustrative listing" : "illustrative listings"}
             {country ? ` in ${countryLabel}` : " across the region"}
           </p>
         </div>
@@ -157,8 +157,8 @@ function EmptyPrompt(): ReactElement {
     >
       <p className="text-sm font-medium text-foreground">Pick a country on the map</p>
       <p className="mx-auto mt-2 max-w-xs text-sm text-foreground-muted">
-        Select any ASEAN member to see its investors, grants, accelerators,
-        partners and market-entry routes.
+        Select a country to browse illustrative programme and partner listings.
+        Current availability and eligibility need verification with each source.
       </p>
     </motion.div>
   );

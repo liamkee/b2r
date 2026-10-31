@@ -76,7 +76,7 @@ export function OpportunityCard({
               <span className="size-1.5 rounded-full bg-gold-400" aria-hidden="true" />
               {metaName(opportunity.country)}
             </span>
-            {opportunity.verified && <VerifiedTick />}
+            <CatalogueLabel />
           </div>
 
           <h3 className="mt-2 text-base leading-snug font-semibold text-foreground">
@@ -117,16 +117,16 @@ export function OpportunityCard({
   );
 }
 
-function VerifiedTick(): ReactElement {
+function CatalogueLabel(): ReactElement {
   return (
     <span
-      className="inline-flex items-center gap-1 text-[0.68rem] font-medium text-success"
-      title="Source link checked"
+      className="inline-flex items-center gap-1 text-[0.68rem] font-medium text-foreground-muted"
+      title="Illustrative catalogue entry; verify availability and terms with the linked source"
     >
       <svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true">
         <circle cx="8" cy="8" r="7" fill="currentColor" opacity="0.18" />
         <path
-          d="M4.5 8.4l2.2 2.2 4.4-5"
+          d="M8 7.2v4M8 4.6v.2"
           fill="none"
           stroke="currentColor"
           strokeWidth="1.9"
@@ -134,7 +134,7 @@ function VerifiedTick(): ReactElement {
           strokeLinejoin="round"
         />
       </svg>
-      Verified
+      Demo listing
     </span>
   );
 }

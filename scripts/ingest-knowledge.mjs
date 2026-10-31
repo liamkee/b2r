@@ -18,7 +18,7 @@ const unique = values => new Set(values).size === values.length;
 
 /** Validate trusted repository assets before generating a server-only index. No network fetches. */
 export function buildKnowledge(root = knowledgeRoot) {
-  const read = path => readFileSync(join(root, path), "utf8");
+  const read = path => readFileSync(join(root, path), "utf8").replace(/\r\n/g, "\n");
   const json = path => JSON.parse(read(path));
   const manifest = json("data/dataset_manifest.json");
   const taxonomy = json("data/taxonomy.json");
@@ -111,7 +111,7 @@ export function buildKnowledge(root = knowledgeRoot) {
   const coverage = json("data/coverage.json");
   for (const code of countries) for (const topic of ["regulation", "market_demand", "competition", "operational_risk", "research_gap"]) assert(coverage.country_counts?.[code]?.[topic] === records.filter(record => record.country_codes.includes(code) && record.topic === topic).length, `coverage count mismatch: ${code}/${topic}`);
   const contentHash = createHash("sha256");
-  for (const path of inputFiles) contentHash.update(path).update("\0").update(readFileSync(join(root, path))).update("\0");
+  for (const path of inputFiles) contentHash.update(path).update("\0").update(read(path)).update("\0");
   const documents = records.map(record => {
     const tokens = tokenize([record.title, record.title, ...record.sector_tags, record.entity?.customer_job ?? "", record.text_for_embedding].join(" "));
     const terms = Object.create(null);
