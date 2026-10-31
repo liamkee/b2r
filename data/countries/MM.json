@@ -1,0 +1,26 @@
+{
+  "code": "MM",
+  "name": "Myanmar",
+  "basics": { "capital": "Naypyidaw", "currency": "MMK", "languages": ["my"] },
+  "regulation": [
+    {
+      "topic": "Business registration",
+      "summary": "Companies register with the Directorate of Investment and Company Administration; foreign investors should verify current requirements on the official portal.",
+      "sourceUrl": "https://www.dica.gov.mm/",
+      "sourceName": "DICA Myanmar",
+      "lastVerified": "2026-10-31"
+    }
+  ],
+  "market": {
+    "worldBankCodes": ["SP.POP.TOTL", "NY.GDP.MKTP.CD", "NY.GDP.PCAP.CD"],
+    "notes": "Values fetched live from World Bank; static file stores IDs only."
+  },
+  "competitors": {
+    "howTo": "Add 3 rivals locally; news below is context only, not a ranking.",
+    "sampleQueries": ["Myanmar fintech funding", "Myanmar retail expansion"]
+  },
+  "industryTemplates": {
+    "_default": { "regulationFocus": ["Business registration"], "marketMetrics": ["NY.GDP.PCAP.CD"], "competitorAngles": ["Local pricing"] },
+    "saas": { "regulationFocus": ["Data protection", "Business registration"], "marketMetrics": ["NY.GDP.PCAP.CD", "IT.NET.USER.ZS"], "competitorAngles": ["Pricing in MMK", "Local payment rails"] }
+  }
+}

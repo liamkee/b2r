@@ -1,0 +1,26 @@
+{
+  "code": "BN",
+  "name": "Brunei",
+  "basics": { "capital": "Bandar Seri Begawan", "currency": "BND", "languages": ["ms"] },
+  "regulation": [
+    {
+      "topic": "Business registration",
+      "summary": "Companies register through the Ministry of Finance and Economy portal; foreign investors should verify current requirements on the official portal.",
+      "sourceUrl": "https://www.mofe.gov.bn/",
+      "sourceName": "Ministry of Finance and Economy, Brunei",
+      "lastVerified": "2026-10-31"
+    }
+  ],
+  "market": {
+    "worldBankCodes": ["SP.POP.TOTL", "NY.GDP.MKTP.CD", "NY.GDP.PCAP.CD"],
+    "notes": "Values fetched live from World Bank; static file stores IDs only."
+  },
+  "competitors": {
+    "howTo": "Add 3 rivals locally; news below is context only, not a ranking.",
+    "sampleQueries": ["Brunei fintech funding", "Brunei retail expansion"]
+  },
+  "industryTemplates": {
+    "_default": { "regulationFocus": ["Business registration"], "marketMetrics": ["NY.GDP.PCAP.CD"], "competitorAngles": ["Local pricing"] },
+    "saas": { "regulationFocus": ["Data protection", "Business registration"], "marketMetrics": ["NY.GDP.PCAP.CD", "IT.NET.USER.ZS"], "competitorAngles": ["Pricing in BND", "Local payment rails"] }
+  }
+}
