@@ -51,3 +51,12 @@ describe("map data", () => {
     expect(geometry.filter(g => g.isAsean).length).toBe(10);
   });
 });
+describe("map components", () => {
+  it("has lazy map with dynamic import", () => {
+    const lazy = fs.readFileSync("app/components/map/LazyAseanMap.tsx", "utf8");
+    expect(lazy).toContain("next/dynamic");
+    expect(lazy).toContain("ssr: false");
+    const map = fs.readFileSync("app/components/map/AseanMap.tsx", "utf8");
+    expect(map).toContain('data-country');
+  });
+});
