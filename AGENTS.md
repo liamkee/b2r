@@ -8,9 +8,8 @@ Any-industry via `industryTemplates` in JSON. Hybrid: static JSON + live free AP
 
 ## Stack
 
-- Next.js 15 App Router + TypeScript strict, Tailwind only (no UI/chart libs)
-- pnpm only. Node 20+. `next/font` + `next/image` AVIF required.
-- Validation: zod (data validation only). Tests: vitest.
+- Next.js App Router (latest, 16.x verified) + TypeScript strict, Tailwind only (no UI/chart libs)
+- pnpm only. Node 20+. `next/font` + `next/image` AVIF required. Tests: `pnpm exec vitest run` (dlx crashes in this env).
 - No DB, no auth. EN only v1.
 
 ## Commands
