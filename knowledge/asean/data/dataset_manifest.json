@@ -1,0 +1,16 @@
+{
+  "dataset_id": "asean-one-market-intelligence",
+  "version": "2026-10-31.v1",
+  "created_on": "2026-10-31",
+  "country_count": 11,
+  "record_count": 78,
+  "source_count": 77,
+  "primary_file": "asean_market_intelligence.jsonl",
+  "snapshot_not_live": true,
+  "legal_audit_completed": false,
+  "verified_opportunity_catalogue": false,
+  "contains_illustrative_business_input_only_in_evals": true,
+  "language": "en",
+  "authoring_method": "Concise paraphrases from public government, institutional and company sources; source facts separated from hypotheses and known gaps. Some sources were only accessible through indexed extracts.",
+  "refresh_policy": "Recheck applicable source on legal or financial decisions; daily/current sanctions screening; scheduled editorial review dates are internal policy, not proof of validity."
+}

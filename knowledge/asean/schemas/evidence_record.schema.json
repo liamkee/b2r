@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "country_codes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "BN",
+          "KH",
+          "ID",
+          "LA",
+          "MY",
+          "MM",
+          "PH",
+          "SG",
+          "TH",
+          "TL",
+          "VN"
+        ]
+      },
+      "minItems": 1,
+      "maxItems": 11,
+      "uniqueItems": true
+    },
+    "countries": {},
+    "topic": {
+      "enum": [
+        "competition",
+        "market_demand",
+        "operational_risk",
+        "regional_context",
+        "regulation",
+        "research_gap"
+      ]
+    },
+    "subtopic": {},
+    "title": {},
+    "record_type": {
+      "enum": [
+        "evidence",
+        "research_gap"
+      ]
+    },
+    "sector_tags": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "general",
+          "software_saas",
+          "fintech_payments",
+          "ecommerce_retail",
+          "logistics",
+          "food_agriculture",
+          "manufacturing",
+          "climate_energy",
+          "tourism_hospitality",
+          "healthcare",
+          "telecom",
+          "education",
+          "professional_services",
+          "other"
+        ]
+      },
+      "minItems": 1,
+      "maxItems": 14
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 0,
+        "maxLength": 3000
+      },
+      "minItems": 0,
+      "maxItems": 15
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "minItems": 0,
+      "maxItems": 20,
+      "uniqueItems": true
+    },
+    "evidence_period": {},
+    "effective_from": {},
+    "effective_to": {},
+    "reviewed_on": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 10
+    },
+    "review_due": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 10
+    },
+    "review_policy_days": {},
+    "source_support": {},
+    "unknowns": {},
+    "analyst_inference": {},
+    "legal_review_status": {},
+    "ranking_use": {},
+    "quantitative_metrics": {},
+    "entity": {},
+    "supersedes_record_ids": {},
+    "text_for_embedding": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 15000
+    },
+    "market_share": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "pricing": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "entity_role": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "schema_version",
+    "country_codes",
+    "countries",
+    "topic",
+    "subtopic",
+    "title",
+    "record_type",
+    "sector_tags",
+    "facts",
+    "source_ids",
+    "evidence_period",
+    "effective_from",
+    "effective_to",
+    "reviewed_on",
+    "review_due",
+    "review_policy_days",
+    "source_support",
+    "unknowns",
+    "analyst_inference",
+    "legal_review_status",
+    "ranking_use",
+    "quantitative_metrics",
+    "entity",
+    "supersedes_record_ids",
+    "text_for_embedding"
+  ]
+}

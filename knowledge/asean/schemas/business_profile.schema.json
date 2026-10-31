@@ -1,0 +1,400 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:asean-one:business-profile:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "industry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sector": {
+          "enum": [
+            "general",
+            "software_saas",
+            "fintech_payments",
+            "ecommerce_retail",
+            "logistics",
+            "food_agriculture",
+            "manufacturing",
+            "climate_energy",
+            "tourism_hospitality",
+            "healthcare",
+            "telecom",
+            "education",
+            "professional_services",
+            "other"
+          ]
+        },
+        "subsector": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 160
+        },
+        "description": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 500
+        }
+      },
+      "required": [
+        "sector",
+        "subsector",
+        "description"
+      ]
+    },
+    "target_countries": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "BN",
+          "KH",
+          "ID",
+          "LA",
+          "MY",
+          "MM",
+          "PH",
+          "SG",
+          "TH",
+          "TL",
+          "VN"
+        ]
+      },
+      "minItems": 1,
+      "maxItems": 11,
+      "uniqueItems": true
+    },
+    "product": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 2000
+        },
+        "buyer_type": {
+          "enum": [
+            "B2B",
+            "B2C",
+            "B2G",
+            "mixed",
+            "unknown"
+          ]
+        },
+        "customer_segment": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 400
+        },
+        "business_model": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 400
+        },
+        "price_description": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 300
+        },
+        "regulated_features": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 100
+          },
+          "minItems": 0,
+          "maxItems": 20
+        },
+        "current_base_country": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "entry_mode_preference": {
+          "enum": [
+            "cross_border_sales",
+            "distributor_partner",
+            "local_entity",
+            "franchise",
+            "undecided"
+          ]
+        }
+      },
+      "required": [
+        "description",
+        "buyer_type",
+        "customer_segment",
+        "business_model",
+        "price_description",
+        "regulated_features",
+        "current_base_country",
+        "entry_mode_preference"
+      ]
+    },
+    "revenue": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "pre_revenue",
+            "revenue_generating",
+            "not_disclosed"
+          ]
+        },
+        "amount": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "range_min": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "range_max": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "currency": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[A-Z]{3}$"
+        },
+        "period": {
+          "enum": [
+            "monthly",
+            "annual",
+            "trailing_12_months",
+            "other",
+            "not_disclosed"
+          ]
+        },
+        "metric": {
+          "enum": [
+            "recognized_revenue",
+            "gross_sales",
+            "gmv",
+            "arr",
+            "mrr",
+            "other",
+            "not_disclosed"
+          ]
+        },
+        "period_end": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 500
+        }
+      },
+      "required": [
+        "status",
+        "amount",
+        "range_min",
+        "range_max",
+        "currency",
+        "period",
+        "metric",
+        "period_end",
+        "notes"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "revenue_generating"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "currency": {
+                "type": "string",
+                "pattern": "^[A-Z]{3}$"
+              },
+              "period": {
+                "enum": [
+                  "monthly",
+                  "annual",
+                  "trailing_12_months",
+                  "other"
+                ]
+              },
+              "metric": {
+                "enum": [
+                  "recognized_revenue",
+                  "gross_sales",
+                  "gmv",
+                  "arr",
+                  "mrr",
+                  "other"
+                ]
+              }
+            },
+            "anyOf": [
+              {
+                "properties": {
+                  "amount": {
+                    "type": "number",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "amount"
+                ]
+              },
+              {
+                "properties": {
+                  "range_min": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "range_max": {
+                    "type": "number",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "range_min",
+                  "range_max"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scalability_targets": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1500
+        },
+        "metric": {
+          "enum": [
+            "revenue",
+            "customers",
+            "users",
+            "stores",
+            "transactions",
+            "production_capacity",
+            "countries",
+            "other",
+            "not_specified"
+          ]
+        },
+        "target_value": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "unit": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "baseline_value": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "horizon_months": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1,
+          "maximum": 120
+        },
+        "target_date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "expansion_budget": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "amount": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "currency": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "amount",
+            "currency"
+          ]
+        },
+        "constraints": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 300
+          },
+          "minItems": 0,
+          "maxItems": 10
+        }
+      },
+      "required": [
+        "description",
+        "metric",
+        "target_value",
+        "unit",
+        "baseline_value",
+        "horizon_months",
+        "target_date",
+        "expansion_budget",
+        "constraints"
+      ]
+    }
+  },
+  "required": [
+    "industry",
+    "target_countries",
+    "product",
+    "revenue",
+    "scalability_targets"
+  ]
+}

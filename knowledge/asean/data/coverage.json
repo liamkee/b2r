@@ -1,0 +1,85 @@
+{
+  "country_counts": {
+    "BN": {
+      "regulation": 2,
+      "market_demand": 2,
+      "competition": 3,
+      "operational_risk": 0,
+      "research_gap": 1
+    },
+    "KH": {
+      "regulation": 2,
+      "market_demand": 1,
+      "competition": 3,
+      "operational_risk": 1,
+      "research_gap": 1
+    },
+    "ID": {
+      "regulation": 3,
+      "market_demand": 2,
+      "competition": 5,
+      "operational_risk": 0,
+      "research_gap": 1
+    },
+    "LA": {
+      "regulation": 2,
+      "market_demand": 1,
+      "competition": 2,
+      "operational_risk": 0,
+      "research_gap": 1
+    },
+    "MY": {
+      "regulation": 3,
+      "market_demand": 2,
+      "competition": 6,
+      "operational_risk": 0,
+      "research_gap": 1
+    },
+    "MM": {
+      "regulation": 2,
+      "market_demand": 1,
+      "competition": 3,
+      "operational_risk": 0,
+      "research_gap": 1
+    },
+    "PH": {
+      "regulation": 2,
+      "market_demand": 2,
+      "competition": 6,
+      "operational_risk": 0,
+      "research_gap": 1
+    },
+    "SG": {
+      "regulation": 2,
+      "market_demand": 1,
+      "competition": 6,
+      "operational_risk": 0,
+      "research_gap": 1
+    },
+    "TH": {
+      "regulation": 2,
+      "market_demand": 2,
+      "competition": 5,
+      "operational_risk": 0,
+      "research_gap": 1
+    },
+    "TL": {
+      "regulation": 2,
+      "market_demand": 2,
+      "competition": 3,
+      "operational_risk": 0,
+      "research_gap": 1
+    },
+    "VN": {
+      "regulation": 2,
+      "market_demand": 2,
+      "competition": 5,
+      "operational_risk": 0,
+      "research_gap": 1
+    }
+  },
+  "record_count": 78,
+  "source_count": 77,
+  "interpretation": "Counts are retrieval coverage, not depth, quality, market attractiveness or completeness. Regional competitor records appear in several country counts.",
+  "industry_coverage": "Strongest initial examples: business software, retail/e-commerce, payments, logistics. Additional illustrative incumbent evidence: food and healthcare. Industry-specific law and demand are not comprehensively covered."
+}

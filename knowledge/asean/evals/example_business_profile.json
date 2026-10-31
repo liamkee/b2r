@@ -1,0 +1,52 @@
+{
+  "industry": {
+    "sector": "software_saas",
+    "subsector": "Restaurant operations",
+    "description": "Tools for independent multi-outlet restaurant operators"
+  },
+  "target_countries": [
+    "MY",
+    "TH",
+    "VN"
+  ],
+  "product": {
+    "description": "Subscription inventory and purchasing software that integrates with existing POS systems to reduce stock discrepancies.",
+    "buyer_type": "B2B",
+    "customer_segment": "Independent restaurant groups with 2–10 outlets",
+    "business_model": "Monthly software subscription",
+    "price_description": "Proposed MYR299 per outlet per month; not yet locally validated",
+    "regulated_features": [
+      "employee_personal_data"
+    ],
+    "current_base_country": "MY",
+    "entry_mode_preference": "undecided"
+  },
+  "revenue": {
+    "status": "revenue_generating",
+    "amount": 50000,
+    "range_min": null,
+    "range_max": null,
+    "currency": "MYR",
+    "period": "monthly",
+    "metric": "recognized_revenue",
+    "period_end": "2026-09-30",
+    "notes": "Synthetic test input, not Rafa’s actual company finances."
+  },
+  "scalability_targets": {
+    "description": "Validate expansion into one new market and reach 100 paying outlets within 12 months.",
+    "metric": "customers",
+    "target_value": 100,
+    "unit": "paying restaurant outlets",
+    "baseline_value": 20,
+    "horizon_months": 12,
+    "target_date": null,
+    "expansion_budget": {
+      "amount": null,
+      "currency": null
+    },
+    "constraints": [
+      "No confirmed local distributor",
+      "Prefer to integrate with existing POS systems rather than replace them"
+    ]
+  }
+}
