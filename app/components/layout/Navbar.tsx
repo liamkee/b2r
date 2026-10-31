@@ -1,5 +1,5 @@
 "use client";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -17,6 +17,7 @@ function isActive(pathname: string, itemPath: string, label: string): boolean {
 export function Navbar(): ReactElement {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const reduced = useReducedMotion();
 
   useEffect(() => {
     if (!isOpen) return;
@@ -108,10 +109,10 @@ export function Navbar(): ReactElement {
           <motion.div
             id="mobile-menu"
             className="glass-thin overflow-hidden border-x-0 border-t-0 md:hidden"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: EASE.out }}
+            initial={reduced ? { opacity: 0 } : { height: 0, opacity: 0 }}
+            animate={reduced ? { opacity: 1 } : { height: "auto", opacity: 1 }}
+            exit={reduced ? { opacity: 0 } : { height: 0, opacity: 0 }}
+            transition={reduced ? { duration: 0.01 } : { duration: 0.3, ease: EASE.out }}
           >
             <ul className="container-page flex flex-col gap-1 py-3">
               {NAV_ITEMS.map((item) => {
