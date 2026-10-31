@@ -51,7 +51,8 @@ Branch: `main`
 ## 5. Push record
 
 - `git remote -v`: origin → `https://github.com/liamkee/b2r.git` (fetch + push).
-- Commit SHA + push output: appended below after push (or BLOCKED with exact error).
+- Commits: `a7e088a` `feat: scaffold Next.js fast baseline` + `9723f6e` `chore: merge remote LICENSE into main`.
+- Push: first `git push -u origin main` rejected (non-fast-forward — remote `main` held an unrelated `b1a3d0e Initial commit` containing only `LICENSE`, never fetched locally). Resolved with `git merge origin/main --allow-unrelated-histories` (clean, no overlapping files), re-pushed OK: `b1a3d0e..9723f6e main -> main`, branch tracking `origin/main`. No history rewritten, no force push.
 
 ## 6. Files created / changed
 
