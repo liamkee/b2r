@@ -1,0 +1,26 @@
+{
+  "code": "SG",
+  "name": "Singapore",
+  "basics": { "capital": "Singapore", "currency": "SGD", "languages": ["en", "ms", "ta", "zh"] },
+  "regulation": [
+    {
+      "topic": "Business registration",
+      "summary": "Register with ACRA; foreign companies need local agent.",
+      "sourceUrl": "https://www.acra.gov.sg/",
+      "sourceName": "ACRA",
+      "lastVerified": "2026-10-01"
+    }
+  ],
+  "market": {
+    "worldBankCodes": ["SP.POP.TOTL", "NY.GDP.MKTP.CD", "NY.GDP.PCAP.CD"],
+    "notes": "Values fetched live from World Bank; static file stores IDs only."
+  },
+  "competitors": {
+    "howTo": "Add 3 rivals locally; news below is context only.",
+    "sampleQueries": ["Singapore startup funding"]
+  },
+  "industryTemplates": {
+    "_default": { "regulationFocus": ["Business registration"], "marketMetrics": ["NY.GDP.PCAP.CD"], "competitorAngles": ["Local pricing"] },
+    "saas": { "regulationFocus": ["Data protection"], "marketMetrics": ["NY.GDP.PCAP.CD"], "competitorAngles": ["Pricing in SGD"] }
+  }
+}

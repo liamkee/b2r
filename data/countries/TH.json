@@ -1,0 +1,33 @@
+{
+  "code": "TH",
+  "name": "Thailand",
+  "basics": { "capital": "Bangkok", "currency": "THB", "languages": ["th"] },
+  "regulation": [
+    {
+      "topic": "Foreign ownership",
+      "summary": "Foreign Business Act restricts foreign majority in most services; BOI promotion can allow majority with approval.",
+      "sourceUrl": "https://www.boi.go.th/",
+      "sourceName": "BOI Thailand",
+      "lastVerified": "2026-10-01"
+    },
+    {
+      "topic": "Data protection",
+      "summary": "PDPA requires consent and cross-border transfer safeguards.",
+      "sourceUrl": "https://www.mdes.go.th/",
+      "sourceName": "MDES Thailand",
+      "lastVerified": "2026-10-01"
+    }
+  ],
+  "market": {
+    "worldBankCodes": ["SP.POP.TOTL", "NY.GDP.MKTP.CD", "NY.GDP.PCAP.CD"],
+    "notes": "Values fetched live from World Bank; static file stores IDs only."
+  },
+  "competitors": {
+    "howTo": "Add 3 rivals locally; news below is context only, not a ranking.",
+    "sampleQueries": ["Thailand fintech funding", "Thailand retail expansion"]
+  },
+  "industryTemplates": {
+    "_default": { "regulationFocus": ["Foreign ownership"], "marketMetrics": ["NY.GDP.PCAP.CD"], "competitorAngles": ["Local pricing"] },
+    "saas": { "regulationFocus": ["Data protection", "Foreign ownership"], "marketMetrics": ["NY.GDP.PCAP.CD", "IT.NET.USER.ZS"], "competitorAngles": ["Pricing in THB", "Local payment rails"] }
+  }
+}
