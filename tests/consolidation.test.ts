@@ -31,3 +31,11 @@ describe("motion helpers", () => {
     expect(NAV_ITEMS.length).toBe(4);
   });
 });
+describe("layout shell", () => {
+  it("has shell files with Next Link", () => {
+    const nav = fs.readFileSync("app/components/layout/Navbar.tsx", "utf8");
+    expect(nav).toContain("next/link");
+    expect(nav).toContain("nav-active-pill");
+    expect(fs.existsSync("app/components/layout/SiteShell.tsx")).toBe(true);
+  });
+});
