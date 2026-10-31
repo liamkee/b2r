@@ -1,4 +1,4 @@
-// app/page.tsx (server) — hero map island (HomeHeroMap wraps LazyAseanMap) navigates to /countries/[code].
+// Home hero: server page + client map island
 import { Suspense } from "react";
 import { listCountries } from "@/lib/countries";
 import CountryGrid from "./components/CountryGrid";

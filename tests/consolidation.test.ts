@@ -63,9 +63,13 @@ describe("map components", () => {
 describe("home hero", () => {
   it("has hero with map and grid", () => {
     const page = fs.readFileSync("app/page.tsx", "utf8");
-    expect(page).toContain("LazyAseanMap");
+    expect(page).toContain("HomeHeroMap");
     expect(page).toContain("CountryGrid");
     expect(page).toContain("IndustryPicker");
-    expect(page).toContain("/countries/");
+    expect(page).toContain('id="countries"');
+    const hero = fs.readFileSync("app/components/HomeHeroMap.tsx", "utf8");
+    expect(hero).toContain("LazyAseanMap");
+    expect(hero).toContain("router.push");
+    expect(hero).toContain("/countries/");
   });
 });
