@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import type { ReactElement } from "react";
 import { HUB_LINKS, HUBS } from "@/lib/map-hubs";
 import type { Hub, HubPoint } from "@/lib/map-hubs";
@@ -5,10 +6,20 @@ import type { Hub, HubPoint } from "@/lib/map-hubs";
 interface MapConnectionsProps {
   /** Hub id → projected point. */
   positions: Map<string, HubPoint>;
+  /** Which hubs to draw. Defaults to the full list. */
+  hubs?: readonly Hub[];
   /** Delay (s) before the arcs begin drawing, after the countries reveal. */
   delay: number;
   /** Drop every other arc and slow the pulse on small/heavy viewports. */
   reduced: boolean;
+  /**
+   * ISO-2 code of the selected country. When set, every arc is re-routed to
+   * start from that country's nearest hub, so the network reads as "flows into
+   * the market you picked".
+   */
+  fromCountry?: string | null;
+  /** Mobile: fewer arcs and markers to keep the frame budget. */
+  compact?: boolean;
 }
 
 /** Builds a curved path between two points, bowing perpendicular to the line. */
@@ -35,11 +46,34 @@ function arcPath(from: HubPoint, to: HubPoint): string {
  */
 export function MapConnections({
   positions,
+  hubs: hubsProp,
   delay,
   reduced,
+  fromCountry = null,
+  compact = false,
 }: MapConnectionsProps): ReactElement {
-  const links = reduced ? HUB_LINKS.slice(0, 4) : HUB_LINKS;
-  const hubs: readonly Hub[] = reduced ? HUBS.slice(0, 4) : HUBS;
+  const allHubs = hubsProp ?? HUBS;
+  /* Mobile shows a subset: the core hubs only. */
+  const hubs: readonly Hub[] = compact
+    ? allHubs.filter((h) => h.ring === "core")
+    : reduced
+      ? allHubs.slice(0, 4)
+      : allHubs;
+
+  const drawingIds = new Set(hubs.map((h) => h.id));
+
+  /* Arc set: normally the curated links; when a country is selected, every
+     other visible hub connects to that country's hub instead. */
+  const links: ReadonlyArray<readonly [string, string]> = useMemo(() => {
+    if (!fromCountry) {
+      return reduced ? HUB_LINKS.slice(0, 4) : HUB_LINKS;
+    }
+    const target = hubs.find((h) => h.country === fromCountry);
+    if (!target) return reduced ? HUB_LINKS.slice(0, 4) : HUB_LINKS;
+    return hubs
+      .filter((h) => h.id !== target.id)
+      .map((h) => [target.id, h.id] as const);
+  }, [fromCountry, hubs, reduced]);
 
   return (
     <>
@@ -65,6 +99,7 @@ export function MapConnections({
       {/* Arcs sit under the markers. */}
       <g className="pointer-events-none">
         {links.map(([fromId, toId], i) => {
+          if (!drawingIds.has(fromId) || !drawingIds.has(toId)) return null;
           const from = positions.get(fromId);
           const to = positions.get(toId);
           if (!from || !to) return null;
@@ -109,8 +144,14 @@ export function MapConnections({
           const p = positions.get(hub.id);
           if (!p) return null;
           const isCore = hub.ring === "core";
+          const isFocus = fromCountry !== null && hub.country === fromCountry;
+          const dim = fromCountry !== null && !isFocus;
           return (
-            <g key={hub.id} transform={`translate(${p.x} ${p.y})`}>
+            <g
+              key={hub.id}
+              transform={`translate(${p.x} ${p.y})`}
+              opacity={dim ? 0.35 : 1}
+            >
               {/* Pulsing halo. */}
               <circle
                 className="asean-hub-pulse"
@@ -127,12 +168,12 @@ export function MapConnections({
               />
               {/* Solid core. */}
               <circle
-                r={isCore ? 3.4 : 2.8}
+                r={isFocus ? 4.4 : isCore ? 3.4 : 2.8}
                 fill="var(--color-gold-400)"
                 stroke="var(--color-night-950)"
                 strokeWidth={1}
               />
-              <circle r={isCore ? 1.4 : 1.1} fill="var(--color-gold-200)" />
+              <circle r={isFocus ? 2 : isCore ? 1.4 : 1.1} fill="var(--color-gold-200)" />
               <title>{`${hub.city}, ${hub.country}`}</title>
             </g>
           );

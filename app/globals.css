@@ -53,21 +53,41 @@ body {
   --material-regular: rgb(28 28 34 / 0.7);
   --material-thick: rgb(22 22 27 / 0.82);
   --material-hairline: rgb(255 255 255 / 0.1);
+  --material-hairline-strong: rgb(255 255 255 / 0.16);
+
+  /* Semantic state colours, tuned for the dark surfaces (AA on #0b0b0f). */
+  --color-success: #30d158;
+  --color-warning: #ffd60a;
+  --color-error: #ff453a;
+
   --navbar-height: 3.5rem;
   --tabbar-height: 4rem;
   --content-max-width: 80rem;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-top: env(safe-area-inset-top, 0px);
 }
 @theme inline {
   --color-night-950: var(--color-night-950);
   --color-night-900: var(--color-night-900);
+  --color-night-850: var(--color-night-850);
   --color-night-800: var(--color-night-800);
   --color-night-700: var(--color-night-700);
+  --color-night-600: var(--color-night-600);
+  --color-night-500: var(--color-night-500);
+  --color-gold-200: var(--color-gold-200);
   --color-gold-400: var(--color-gold-400);
   --color-gold-300: var(--color-gold-300);
+  --color-ocean-300: var(--color-ocean-300);
+  --color-ocean-400: var(--color-ocean-400);
+  --color-ocean-500: var(--color-ocean-500);
+  --color-ocean-600: var(--color-ocean-600);
   --color-ocean-800: var(--color-ocean-800);
   --color-foreground: var(--color-foreground);
   --color-foreground-muted: var(--color-foreground-muted);
   --color-foreground-subtle: var(--color-foreground-subtle);
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-error: var(--color-error);
 }
 @utility container-page {
   width: 100%;
@@ -84,6 +104,32 @@ body {
   background: var(--material-thin);
   backdrop-filter: blur(12px);
   border: 1px solid var(--material-hairline);
+}
+@utility glass-thick {
+  background: var(--material-thick);
+  backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--material-hairline-strong);
+  box-shadow: inset 0 1px 0 0 rgb(255 255 255 / 0.07), 0 16px 40px rgb(0 0 0 / 0.44);
+}
+/* Soft gold halo for primary actions. */
+@utility shadow-glow {
+  box-shadow: 0 0 24px rgb(255 183 0 / 0.25);
+}
+/* Horizontal scrollers (featured rail, chip rows) hide their scrollbar. */
+@utility no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+/* Fallback when backdrop-filter is unavailable: keep glass legible. */
+@supports not (backdrop-filter: blur(1px)) {
+  .glass,
+  .glass-thin,
+  .glass-thick {
+    background: var(--color-night-800);
+  }
 }
 @utility text-gradient-gold {
   background: linear-gradient(180deg, #ffe49b, #ffb700);

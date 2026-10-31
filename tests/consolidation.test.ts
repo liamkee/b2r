@@ -56,20 +56,29 @@ describe("map components", () => {
     const lazy = fs.readFileSync("app/components/map/LazyAseanMap.tsx", "utf8");
     expect(lazy).toContain("next/dynamic");
     expect(lazy).toContain("ssr: false");
+    /* Country shapes carry a data-country attribute so selections are
+       targetable, and the id scheme is stable for click-to-zoom. */
+    const country = fs.readFileSync("app/components/map/AseanCountry.tsx", "utf8");
+    expect(country).toContain("data-country");
     const map = fs.readFileSync("app/components/map/AseanMap.tsx", "utf8");
-    expect(map).toContain('data-country');
+    /* The framed selection exposes a way back to the full ASEAN view. */
+    expect(map).toContain("Back to ASEAN");
   });
 });
 describe("home hero", () => {
-  it("has hero with map and grid", () => {
+  it("has hero with map, explorer and grid", () => {
     const page = fs.readFileSync("app/page.tsx", "utf8");
-    expect(page).toContain("HomeHeroMap");
+    /* The map + explorer moved into their own island (Explore was merged into
+       the home page), so the page composes HomeExplorer instead of a bare map. */
+    expect(page).toContain("HomeExplorer");
+    expect(page).toContain("HeroAiInput");
     expect(page).toContain("CountryGrid");
     expect(page).toContain("IndustryPicker");
     expect(page).toContain('id="countries"');
-    const hero = fs.readFileSync("app/components/HomeHeroMap.tsx", "utf8");
-    expect(hero).toContain("LazyAseanMap");
-    expect(hero).toContain("router.push");
-    expect(hero).toContain("/countries/");
+    const explorer = fs.readFileSync("app/components/explore/HomeExplorer.tsx", "utf8");
+    expect(explorer).toContain("LazyAseanMap");
+    expect(explorer).toContain("ExploreSection");
+    expect(explorer).toContain("router.replace");
+    expect(explorer).toContain("country");
   });
 });
