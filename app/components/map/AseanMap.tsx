@@ -85,7 +85,7 @@ export function AseanMap({
       <svg
         viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
         className="h-full w-full"
-        role="img"
+        role="group"
         aria-label={ariaLabel}
         preserveAspectRatio="xMidYMid meet"
       >
@@ -200,7 +200,7 @@ export function AseanMap({
                 height={22}
                 rx={11}
                 fill="var(--material-thick)"
-                stroke="var(--material-hairline-strong)"
+                stroke="var(--material-hairline)"
                 strokeWidth={0.8}
               />
               <text
