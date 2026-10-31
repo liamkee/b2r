@@ -60,3 +60,12 @@ describe("map components", () => {
     expect(map).toContain('data-country');
   });
 });
+describe("home hero", () => {
+  it("has hero with map and grid", () => {
+    const page = fs.readFileSync("app/page.tsx", "utf8");
+    expect(page).toContain("LazyAseanMap");
+    expect(page).toContain("CountryGrid");
+    expect(page).toContain("IndustryPicker");
+    expect(page).toContain("/countries/");
+  });
+});
