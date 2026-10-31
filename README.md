@@ -2,6 +2,12 @@
 
 Grouped by ASEAN country: regulation, market, competitors.
 
+## Country-entry research backend
+
+The backend now ingests the supplied 11-country research pack and exposes `POST /api/recommendations` and `GET /api/knowledge/status`. It works in evidence-only mode without credentials. Optional model analysis requires explicit server-side configuration and shared spend admission. The frontend intake/comparison screens are being integrated separately.
+
+See [backend contract, refresh and deployment instructions](docs/backend-engine.md). Existing country pages, BYOK Enhance preview and the independent `asean-one/` opportunity scaffold retain their contracts.
+
 ## Run
 
 pnpm install
