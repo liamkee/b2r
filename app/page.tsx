@@ -7,6 +7,7 @@ import CountryGrid from "./components/CountryGrid";
 import IndustryPicker from "./components/IndustryPicker";
 import { HomeExplorer } from "./components/explore/HomeExplorer";
 import { HeroAiInput } from "./components/matchmaker/HeroAiInput";
+import { IntroSplash } from "./components/layout/IntroSplash";
 import { StatsStrip } from "./components/home/StatsStrip";
 import { ProblemToSolution } from "./components/home/ProblemToSolution";
 import { HowItWorks } from "./components/home/HowItWorks";
@@ -22,6 +23,7 @@ export default function Home() {
 
   return (
     <main className="pb-16">
+      <IntroSplash />
       {/* ── Hero ─────────────────────────────────────────────────────── */}
       <section className="container-page pt-10 pb-6 sm:pt-14">
         <div className="max-w-3xl">

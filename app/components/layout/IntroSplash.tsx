@@ -1,216 +1,79 @@
 "use client";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
-import type { ReactElement } from "react";
-import { EASE } from "@/lib/motion";
 
-const SEEN_KEY = "asean-one:intro-seen";
+import { useCallback, useEffect, useRef, useState } from "react";
 
-/* ── sessionStorage as an external store ──────────────────────────── */
-
-/** Subscribers notified when the flag changes (only this component sets it). */
-const listeners = new Set<() => void>();
-
-function subscribe(onChange: () => void): () => void {
-  listeners.add(onChange);
-  return () => listeners.delete(onChange);
-}
-
-function emit(): void {
-  for (const l of listeners) l();
-}
-
-/**
- * Reads the "intro already seen" flag.
- *
- * Goes through `useSyncExternalStore` rather than an effect so SSR and the
- * client agree (the server snapshot is always `false`, and the client re-reads
- * on subscribe) and no state is set from an effect body.
- */
-function useIntroSeen(): boolean {
-  return useSyncExternalStore(
-    subscribe,
-    () => {
-      try {
-        return window.sessionStorage.getItem(SEEN_KEY) === "1";
-      } catch {
-        return false;
-      }
-    },
-    () => false,
-  );
-}
-
-function markSeen(): void {
-  try {
-    window.sessionStorage.setItem(SEEN_KEY, "1");
-  } catch {
-    /* Private mode or storage disabled — the intro will simply show again. */
-  }
-  emit();
-}
-
-const noopSubscribe = (): (() => void) => () => {};
-
-/**
- * False during SSR and the first client render, true afterwards.
- *
- * Using `useSyncExternalStore` avoids setting state from an effect just to
- * detect "we are on the client", which keeps hydration clean.
- */
-function useIsClient(): boolean {
-  return useSyncExternalStore(
-    noopSubscribe,
-    () => true,
-    () => false,
-  );
-}
-
-/**
- * Path to the intro video.
- *
- * Drop your file at `public/intro.mp4` (or point this at any public path /
- * remote URL) — nothing else needs changing. The overlay also works when the
- * file is missing: the video errors, and we dismiss after a short beat rather
- * than trapping the user on a blank screen.
- */
-const VIDEO_SRC = "/intro.mp4";
-
-interface IntroSplashProps {
-  /** Playback length (seconds) used for the fallback timer if the video stalls. */
-  maxDuration?: number;
-}
-
-/**
- * Full-screen video intro shown once per browser session.
- *
- * Fades out over ~800ms when the video ends, when "Skip intro" is pressed, or
- * when the video fails to load. The flag lives in `sessionStorage` so a reload
- * mid-session does not replay it.
- */
-export function IntroSplash({ maxDuration = 12 }: IntroSplashProps): ReactElement | null {
-  const seen = useIntroSeen();
-  const mounted = useIsClient();
-  const reduced = useReducedMotion();
+/** The homepage is already rendered underneath this floating video card. */
+export function IntroSplash() {
+  const dialog = useRef<HTMLDialogElement>(null);
+  const video = useRef<HTMLVideoElement>(null);
+  const closingTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const stallTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const finished = useRef(false);
+  const [closed, setClosed] = useState(false);
+  const [closing, setClosing] = useState(false);
+  const [manual, setManual] = useState(false);
   const [muted, setMuted] = useState(true);
-  /** Set once the user skips/finishes, so the overlay stays closed this visit. */
-  const [dismissed, setDismissed] = useState(false);
-  const finishedRef = useRef(false);
-
-  /* Reduced motion: never autoplay a full-screen video. */
-  useEffect(() => {
-    if (mounted && reduced && !seen) markSeen();
-  }, [mounted, reduced, seen]);
-
-  const visible = mounted && !seen && !dismissed && !reduced;
-
-  /* Lock scroll while the overlay covers the page. */
-  useEffect(() => {
-    if (!visible) return;
-    const previous = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = previous;
-    };
-  }, [visible]);
 
   const dismiss = useCallback(() => {
-    if (finishedRef.current) return;
-    finishedRef.current = true;
-    setDismissed(true);
-    markSeen();
+    if (finished.current) return;
+    finished.current = true;
+    clearTimeout(stallTimer.current);
+    video.current?.pause();
+    setClosing(true);
+    const delay = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 220;
+    closingTimer.current = setTimeout(() => { dialog.current?.close(); setClosed(true); }, delay);
   }, []);
 
-  /* Safety net: never let the intro outstay its welcome if `ended` never fires. */
-  useEffect(() => {
-    if (!visible) return;
-    const id = window.setTimeout(dismiss, maxDuration * 1000);
-    return () => window.clearTimeout(id);
-  }, [visible, maxDuration, dismiss]);
+  const resetStallTimer = useCallback(() => {
+    clearTimeout(stallTimer.current);
+    if (!finished.current) stallTimer.current = setTimeout(dismiss, 20_000);
+  }, [dismiss]);
 
-  /* Escape also skips. */
   useEffect(() => {
-    if (!visible) return;
-    const onKey = (e: KeyboardEvent): void => {
-      if (e.key === "Escape") dismiss();
+    if (closed) return;
+    const element = dialog.current;
+    const media = video.current;
+    if (!element || !media) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    element.showModal();
+    finished.current = false;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      media.controls = true;
+      queueMicrotask(() => setManual(true));
+    } else {
+      media.autoplay = true;
+      media.muted = true;
+      void media.play().catch(() => {
+        if (!finished.current) { media.controls = true; setManual(true); clearTimeout(stallTimer.current); }
+      });
+      resetStallTimer();
+    }
+    return () => {
+      clearTimeout(closingTimer.current);
+      clearTimeout(stallTimer.current);
+      media.pause();
+      if (element.open) element.close();
+      document.body.style.overflow = previousOverflow;
     };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [visible, dismiss]);
+  }, [closed, resetStallTimer]);
 
-  return (
-    <AnimatePresence>
-      {visible && (
-        <motion.div
-          className="fixed inset-0 z-50 bg-black"
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8, ease: EASE.out }}
-          role="dialog"
-          aria-modal="true"
-          aria-label="ASEAN ONE intro"
-        >
-          <video
-            className="h-full w-full object-cover"
-            src={VIDEO_SRC}
-            autoPlay
-            muted={muted}
-            playsInline
-            preload="auto"
-            onEnded={dismiss}
-            onError={dismiss}
-          />
-
-          {/* Bottom scrim so the controls stay legible over any frame. */}
-          <div
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/80 to-transparent"
-            aria-hidden="true"
-          />
-
-          <div className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-4 p-5 pb-[calc(1.25rem+var(--safe-bottom))]">
-            <button
-              type="button"
-              onClick={() => setMuted((m) => !m)}
-              className="glass-thin inline-flex min-h-11 items-center gap-2 rounded-full px-4 py-2.5 text-sm font-medium text-white transition-colors duration-200 hover:text-gold-400"
-              aria-label={muted ? "Unmute intro video" : "Mute intro video"}
-            >
-              <svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true">
-                {muted ? (
-                  <>
-                    <path d="M4 8v4h3l4 3.5v-11L7 8H4z" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-                    <path d="M14 8l4 4M18 8l-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                  </>
-                ) : (
-                  <>
-                    <path d="M4 8v4h3l4 3.5v-11L7 8H4z" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-                    <path d="M13.5 7.5a4 4 0 0 1 0 5M15.5 5.5a7 7 0 0 1 0 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" fill="none" />
-                  </>
-                )}
-              </svg>
-              {muted ? "Sound off" : "Sound on"}
-            </button>
-
-            <button
-              type="button"
-              onClick={dismiss}
-              className="glass-thin inline-flex min-h-11 items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-200 hover:text-gold-400"
-            >
-              Skip intro
-              <svg width="15" height="15" viewBox="0 0 20 20" aria-hidden="true">
-                <path d="M5 4.5l7 5.5-7 5.5z" fill="currentColor" />
-                <path d="M14 4.5v11" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-              </svg>
-            </button>
-          </div>
-
-          {/* Brand mark while the video loads. */}
-          <div className="pointer-events-none absolute inset-x-0 top-0 flex items-center justify-center pt-[calc(1.5rem+var(--safe-top))]">
-            <span className="font-display text-sm font-semibold tracking-[0.3em] text-white/70 uppercase">
-              ASEAN ONE
-            </span>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
+  if (closed) return null;
+  return <dialog ref={dialog} aria-label="ASEAN ONE intro" onCancel={event => { event.preventDefault(); dismiss(); }}
+    className={`fixed inset-0 m-auto w-[calc(100%-2rem)] max-w-5xl overflow-visible rounded-3xl border border-white/15 bg-night-950 p-0 text-foreground shadow-2xl backdrop:bg-black/65 backdrop:backdrop-blur-sm motion-safe:transition-opacity motion-safe:duration-200 ${closing ? "opacity-0" : "opacity-100"}`}>
+    <div className="relative overflow-hidden rounded-3xl">
+      <video ref={video} src="/intro.mp4" aria-label="Southeast Asia introduction" muted={muted} playsInline preload="auto" controls={manual}
+        className="block aspect-video w-full bg-black object-contain" onEnded={dismiss} onError={dismiss}
+        onPlaying={resetStallTimer} onTimeUpdate={() => { if (!video.current?.paused) resetStallTimer(); }} />
+      <button type="button" aria-label="Skip intro" autoFocus onClick={dismiss}
+        className="absolute right-3 top-3 z-10 inline-flex size-11 items-center justify-center rounded-full border border-white/30 bg-black/70 text-white hover:bg-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:right-4 sm:top-4">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg>
+      </button>
+      {!manual && <button type="button" onClick={() => setMuted(value => !value)} aria-label={muted ? "Unmute intro video" : "Mute intro video"}
+        className="absolute bottom-3 left-3 min-h-11 rounded-full border border-white/25 bg-black/70 px-4 text-xs font-medium text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:bottom-4 sm:left-4">{muted ? "Sound off" : "Sound on"}</button>}
+      {manual && <button type="button" onClick={() => { void video.current?.play().then(() => { setManual(false); resetStallTimer(); }).catch(() => undefined); }}
+        className="absolute left-3 top-3 min-h-11 rounded-full border border-white/25 bg-black/70 px-4 text-sm text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Play intro</button>}
+    </div>
+    <p className="sr-only">An introduction to Southeast Asia. Close with the X button or Escape to continue to the homepage.</p>
+  </dialog>;
 }
