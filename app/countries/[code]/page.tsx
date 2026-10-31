@@ -18,17 +18,7 @@ export default async function CountryPage({
 }) {
   const { code } = await params;
   const { industry: industryParam } = await searchParams;
-  let country;
-  try {
-    country = getCountry(code);
-  } catch {
-    return (
-      <main className="max-w-5xl mx-auto p-6 space-y-6">
-        <h1 className="text-2xl font-bold">{code} · Coming soon</h1>
-        <p className="text-sm">Country data for {code} is not yet available.</p>
-      </main>
-    );
-  }
+  const country = getCountry(code);
   const industry = industryParam ?? "saas";
   const tpl = country.industryTemplates[industry] ?? country.industryTemplates["_default"];
   const [wb, fx, news] = await Promise.all([

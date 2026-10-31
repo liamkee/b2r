@@ -1,0 +1,26 @@
+{
+  "code": "LA",
+  "name": "Laos",
+  "basics": { "capital": "Vientiane", "currency": "LAK", "languages": ["lo"] },
+  "regulation": [
+    {
+      "topic": "Business registration",
+      "summary": "Enterprise registration is overseen by the Ministry of Industry and Commerce; foreign investors should verify current requirements on the official portal.",
+      "sourceUrl": "https://www.moic.gov.la/",
+      "sourceName": "Ministry of Industry and Commerce, Laos",
+      "lastVerified": "2026-10-31"
+    }
+  ],
+  "market": {
+    "worldBankCodes": ["SP.POP.TOTL", "NY.GDP.MKTP.CD", "NY.GDP.PCAP.CD"],
+    "notes": "Values fetched live from World Bank; static file stores IDs only."
+  },
+  "competitors": {
+    "howTo": "Add 3 rivals locally; news below is context only, not a ranking.",
+    "sampleQueries": ["Laos fintech funding", "Laos retail expansion"]
+  },
+  "industryTemplates": {
+    "_default": { "regulationFocus": ["Business registration"], "marketMetrics": ["NY.GDP.PCAP.CD"], "competitorAngles": ["Local pricing"] },
+    "saas": { "regulationFocus": ["Data protection", "Business registration"], "marketMetrics": ["NY.GDP.PCAP.CD", "IT.NET.USER.ZS"], "competitorAngles": ["Pricing in LAK", "Local payment rails"] }
+  }
+}
