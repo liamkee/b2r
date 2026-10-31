@@ -39,3 +39,15 @@ describe("layout shell", () => {
     expect(fs.existsSync("app/components/layout/SiteShell.tsx")).toBe(true);
   });
 });
+describe("map data", () => {
+  it("has topology with 10 ASEAN ids", async () => {
+    const topo = JSON.parse(fs.readFileSync("public/asean/asean-countries-50m.json", "utf8"));
+    const ids = topo.objects.countries.geometries.map((g: {id:string}) => String(g.id));
+    for (const id of ["360","458","702","764"]) expect(ids).toContain(id);
+  });
+  it("builds geometry", async () => {
+    const { buildMapGeometry } = await import("@/lib/map-geo");
+    const { geometry } = buildMapGeometry(640, 560, 30);
+    expect(geometry.filter(g => g.isAsean).length).toBe(10);
+  });
+});
