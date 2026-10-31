@@ -3,6 +3,7 @@ import { fetchFx, fetchGdelt, fetchWorldBank } from "@/lib/sources";
 import RegulationCard from "@/app/components/RegulationCard";
 import MarketTable from "@/app/components/MarketTable";
 import NewsList from "@/app/components/NewsList";
+import EnhanceBox from "@/app/components/EnhanceBox";
 
 export function generateStaticParams() {
   return ["BN","KH","ID","LA","MY","MM","PH","SG","TH","VN","TL"].map((code) => ({ code }));
@@ -65,6 +66,9 @@ export default async function CountryPage({
         <h2 className="font-semibold">Competitors</h2>
         <p className="text-sm text-gray-600 mb-2">{country.competitors.howTo}</p>
         <NewsList items={news.data} />
+      </section>
+      <section>
+        <EnhanceBox code={country.code} industry={industry} />
       </section>
     </main>
   );
