@@ -24,3 +24,82 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* ASEAN ONE tokens — ported from origin/frontend frontend/src/styles/tokens.css */
+:root {
+  --color-night-950: #000000;
+  --color-night-900: #0b0b0f;
+  --color-night-850: #121216;
+  --color-night-800: #1a1a1f;
+  --color-night-700: #232329;
+  --color-night-600: #2e2e36;
+  --color-night-500: #3d3d47;
+  --color-ocean-900: #06131f;
+  --color-ocean-800: #0a2233;
+  --color-ocean-700: #10344c;
+  --color-ocean-600: #17506f;
+  --color-ocean-500: #247a9e;
+  --color-ocean-400: #4aa6c9;
+  --color-ocean-300: #86c9e2;
+  --color-gold-600: #b8770f;
+  --color-gold-500: #e09a12;
+  --color-gold-400: #ffb700;
+  --color-gold-300: #ffcf4d;
+  --color-gold-200: #ffe49b;
+  --color-foreground: #f7f7f9;
+  --color-foreground-muted: #b4b4bf;
+  --color-foreground-subtle: #8b8b99;
+  --material-thin: rgb(28 28 34 / 0.6);
+  --material-regular: rgb(28 28 34 / 0.7);
+  --material-thick: rgb(22 22 27 / 0.82);
+  --material-hairline: rgb(255 255 255 / 0.1);
+  --navbar-height: 3.5rem;
+  --tabbar-height: 4rem;
+  --content-max-width: 80rem;
+}
+@theme inline {
+  --color-night-950: var(--color-night-950);
+  --color-night-900: var(--color-night-900);
+  --color-night-800: var(--color-night-800);
+  --color-night-700: var(--color-night-700);
+  --color-gold-400: var(--color-gold-400);
+  --color-gold-300: var(--color-gold-300);
+  --color-ocean-800: var(--color-ocean-800);
+  --color-foreground: var(--color-foreground);
+  --color-foreground-muted: var(--color-foreground-muted);
+  --color-foreground-subtle: var(--color-foreground-subtle);
+}
+@utility container-page {
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+@utility glass {
+  background: var(--material-regular);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--material-hairline);
+}
+@utility glass-thin {
+  background: var(--material-thin);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--material-hairline);
+}
+@utility text-gradient-gold {
+  background: linear-gradient(180deg, #ffe49b, #ffb700);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@utility border-hairline {
+  border-color: var(--material-hairline);
+}
+body {
+  background-color: #000000;
+  background-image:
+    radial-gradient(ellipse 70% 45% at 80% -8%, rgb(255 183 0 / 0.07), transparent 62%),
+    radial-gradient(ellipse 60% 45% at 10% 2%, rgb(74 166 201 / 0.09), transparent 58%),
+    linear-gradient(180deg, #000000 0%, #06131f 60%, #000000 100%);
+  background-attachment: fixed;
+  color: var(--color-foreground);
+}
