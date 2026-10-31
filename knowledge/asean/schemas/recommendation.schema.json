@@ -1,0 +1,1276 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:asean-one:recommendation:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "dataset_version": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "generated_at": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "mode": {
+      "enum": [
+        "rag_model",
+        "evidence_only"
+      ]
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "kind": {
+          "enum": [
+            "source_fact",
+            "analyst_inference",
+            "user_provided",
+            "unknown"
+          ]
+        },
+        "citations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "record_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+              },
+              "source_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                "minItems": 1,
+                "maxItems": 10
+              }
+            },
+            "required": [
+              "record_id",
+              "source_ids"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 10
+        },
+        "assumptions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 500
+          },
+          "minItems": 0,
+          "maxItems": 10
+        }
+      },
+      "required": [
+        "text",
+        "kind",
+        "citations",
+        "assumptions"
+      ]
+    },
+    "comparison_order": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "BN",
+          "KH",
+          "ID",
+          "LA",
+          "MY",
+          "MM",
+          "PH",
+          "SG",
+          "TH",
+          "TL",
+          "VN"
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 11
+    },
+    "ordering_status": {
+      "enum": [
+        "supported_test_priority",
+        "not_ranked_insufficient_evidence",
+        "not_ranked_unequal_coverage"
+      ]
+    },
+    "countries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "country_code": {
+            "type": "string",
+            "enum": [
+              "BN",
+              "KH",
+              "ID",
+              "LA",
+              "MY",
+              "MM",
+              "PH",
+              "SG",
+              "TH",
+              "TL",
+              "VN"
+            ]
+          },
+          "status": {
+            "enum": [
+              "pilot_candidate",
+              "research_first",
+              "defer",
+              "not_recommended"
+            ]
+          },
+          "recommendation": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "text": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "kind": {
+                "enum": [
+                  "source_fact",
+                  "analyst_inference",
+                  "user_provided",
+                  "unknown"
+                ]
+              },
+              "citations": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "record_id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 100
+                    },
+                    "source_ids": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 100
+                      },
+                      "minItems": 1,
+                      "maxItems": 10
+                    }
+                  },
+                  "required": [
+                    "record_id",
+                    "source_ids"
+                  ]
+                },
+                "minItems": 0,
+                "maxItems": 10
+              },
+              "assumptions": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 0,
+                  "maxLength": 500
+                },
+                "minItems": 0,
+                "maxItems": 10
+              }
+            },
+            "required": [
+              "text",
+              "kind",
+              "citations",
+              "assumptions"
+            ]
+          },
+          "confidence": {
+            "enum": [
+              "low",
+              "moderate",
+              "high"
+            ]
+          },
+          "evidence_coverage": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "regulation": {
+                "enum": [
+                  "starter",
+                  "sector_specific",
+                  "missing",
+                  "stale"
+                ]
+              },
+              "demand": {
+                "enum": [
+                  "macro_only",
+                  "sector_signal",
+                  "product_specific",
+                  "missing",
+                  "stale"
+                ]
+              },
+              "competition": {
+                "enum": [
+                  "examples_only",
+                  "product_specific",
+                  "missing",
+                  "stale"
+                ]
+              },
+              "freshness_flags": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 0,
+                  "maxLength": 600
+                },
+                "minItems": 0,
+                "maxItems": 20
+              }
+            },
+            "required": [
+              "regulation",
+              "demand",
+              "competition",
+              "freshness_flags"
+            ]
+          },
+          "dimensions": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "demand_fit": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "assessment": {
+                    "enum": [
+                      "supportive",
+                      "mixed",
+                      "constraining",
+                      "unknown"
+                    ]
+                  },
+                  "confidence": {
+                    "enum": [
+                      "low",
+                      "moderate",
+                      "high"
+                    ]
+                  },
+                  "reasons": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "text": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 2000
+                        },
+                        "kind": {
+                          "enum": [
+                            "source_fact",
+                            "analyst_inference",
+                            "user_provided",
+                            "unknown"
+                          ]
+                        },
+                        "citations": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                              "record_id": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 100
+                              },
+                              "source_ids": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "maxLength": 100
+                                },
+                                "minItems": 1,
+                                "maxItems": 10
+                              }
+                            },
+                            "required": [
+                              "record_id",
+                              "source_ids"
+                            ]
+                          },
+                          "minItems": 0,
+                          "maxItems": 10
+                        },
+                        "assumptions": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "minLength": 0,
+                            "maxLength": 500
+                          },
+                          "minItems": 0,
+                          "maxItems": 10
+                        }
+                      },
+                      "required": [
+                        "text",
+                        "kind",
+                        "citations",
+                        "assumptions"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 8
+                  },
+                  "unresolved_inputs": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 0,
+                      "maxLength": 500
+                    },
+                    "minItems": 0,
+                    "maxItems": 15
+                  }
+                },
+                "required": [
+                  "assessment",
+                  "confidence",
+                  "reasons",
+                  "unresolved_inputs"
+                ]
+              },
+              "regulatory_feasibility": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "assessment": {
+                    "enum": [
+                      "supportive",
+                      "mixed",
+                      "constraining",
+                      "unknown"
+                    ]
+                  },
+                  "confidence": {
+                    "enum": [
+                      "low",
+                      "moderate",
+                      "high"
+                    ]
+                  },
+                  "reasons": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "text": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 2000
+                        },
+                        "kind": {
+                          "enum": [
+                            "source_fact",
+                            "analyst_inference",
+                            "user_provided",
+                            "unknown"
+                          ]
+                        },
+                        "citations": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                              "record_id": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 100
+                              },
+                              "source_ids": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "maxLength": 100
+                                },
+                                "minItems": 1,
+                                "maxItems": 10
+                              }
+                            },
+                            "required": [
+                              "record_id",
+                              "source_ids"
+                            ]
+                          },
+                          "minItems": 0,
+                          "maxItems": 10
+                        },
+                        "assumptions": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "minLength": 0,
+                            "maxLength": 500
+                          },
+                          "minItems": 0,
+                          "maxItems": 10
+                        }
+                      },
+                      "required": [
+                        "text",
+                        "kind",
+                        "citations",
+                        "assumptions"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 8
+                  },
+                  "unresolved_inputs": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 0,
+                      "maxLength": 500
+                    },
+                    "minItems": 0,
+                    "maxItems": 15
+                  }
+                },
+                "required": [
+                  "assessment",
+                  "confidence",
+                  "reasons",
+                  "unresolved_inputs"
+                ]
+              },
+              "competitive_positioning": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "assessment": {
+                    "enum": [
+                      "supportive",
+                      "mixed",
+                      "constraining",
+                      "unknown"
+                    ]
+                  },
+                  "confidence": {
+                    "enum": [
+                      "low",
+                      "moderate",
+                      "high"
+                    ]
+                  },
+                  "reasons": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "text": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 2000
+                        },
+                        "kind": {
+                          "enum": [
+                            "source_fact",
+                            "analyst_inference",
+                            "user_provided",
+                            "unknown"
+                          ]
+                        },
+                        "citations": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                              "record_id": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 100
+                              },
+                              "source_ids": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "maxLength": 100
+                                },
+                                "minItems": 1,
+                                "maxItems": 10
+                              }
+                            },
+                            "required": [
+                              "record_id",
+                              "source_ids"
+                            ]
+                          },
+                          "minItems": 0,
+                          "maxItems": 10
+                        },
+                        "assumptions": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "minLength": 0,
+                            "maxLength": 500
+                          },
+                          "minItems": 0,
+                          "maxItems": 10
+                        }
+                      },
+                      "required": [
+                        "text",
+                        "kind",
+                        "citations",
+                        "assumptions"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 8
+                  },
+                  "unresolved_inputs": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 0,
+                      "maxLength": 500
+                    },
+                    "minItems": 0,
+                    "maxItems": 15
+                  }
+                },
+                "required": [
+                  "assessment",
+                  "confidence",
+                  "reasons",
+                  "unresolved_inputs"
+                ]
+              },
+              "commercial_readiness": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "assessment": {
+                    "enum": [
+                      "supportive",
+                      "mixed",
+                      "constraining",
+                      "unknown"
+                    ]
+                  },
+                  "confidence": {
+                    "enum": [
+                      "low",
+                      "moderate",
+                      "high"
+                    ]
+                  },
+                  "reasons": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "text": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 2000
+                        },
+                        "kind": {
+                          "enum": [
+                            "source_fact",
+                            "analyst_inference",
+                            "user_provided",
+                            "unknown"
+                          ]
+                        },
+                        "citations": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                              "record_id": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 100
+                              },
+                              "source_ids": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "maxLength": 100
+                                },
+                                "minItems": 1,
+                                "maxItems": 10
+                              }
+                            },
+                            "required": [
+                              "record_id",
+                              "source_ids"
+                            ]
+                          },
+                          "minItems": 0,
+                          "maxItems": 10
+                        },
+                        "assumptions": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "minLength": 0,
+                            "maxLength": 500
+                          },
+                          "minItems": 0,
+                          "maxItems": 10
+                        }
+                      },
+                      "required": [
+                        "text",
+                        "kind",
+                        "citations",
+                        "assumptions"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 8
+                  },
+                  "unresolved_inputs": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 0,
+                      "maxLength": 500
+                    },
+                    "minItems": 0,
+                    "maxItems": 15
+                  }
+                },
+                "required": [
+                  "assessment",
+                  "confidence",
+                  "reasons",
+                  "unresolved_inputs"
+                ]
+              },
+              "scaling_feasibility": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "assessment": {
+                    "enum": [
+                      "supportive",
+                      "mixed",
+                      "constraining",
+                      "unknown"
+                    ]
+                  },
+                  "confidence": {
+                    "enum": [
+                      "low",
+                      "moderate",
+                      "high"
+                    ]
+                  },
+                  "reasons": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "text": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 2000
+                        },
+                        "kind": {
+                          "enum": [
+                            "source_fact",
+                            "analyst_inference",
+                            "user_provided",
+                            "unknown"
+                          ]
+                        },
+                        "citations": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                              "record_id": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 100
+                              },
+                              "source_ids": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "maxLength": 100
+                                },
+                                "minItems": 1,
+                                "maxItems": 10
+                              }
+                            },
+                            "required": [
+                              "record_id",
+                              "source_ids"
+                            ]
+                          },
+                          "minItems": 0,
+                          "maxItems": 10
+                        },
+                        "assumptions": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "minLength": 0,
+                            "maxLength": 500
+                          },
+                          "minItems": 0,
+                          "maxItems": 10
+                        }
+                      },
+                      "required": [
+                        "text",
+                        "kind",
+                        "citations",
+                        "assumptions"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 8
+                  },
+                  "unresolved_inputs": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 0,
+                      "maxLength": 500
+                    },
+                    "minItems": 0,
+                    "maxItems": 15
+                  }
+                },
+                "required": [
+                  "assessment",
+                  "confidence",
+                  "reasons",
+                  "unresolved_inputs"
+                ]
+              }
+            },
+            "required": [
+              "demand_fit",
+              "regulatory_feasibility",
+              "competitive_positioning",
+              "commercial_readiness",
+              "scaling_feasibility"
+            ]
+          },
+          "entry_mode_options": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "text": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2000
+                },
+                "kind": {
+                  "enum": [
+                    "source_fact",
+                    "analyst_inference",
+                    "user_provided",
+                    "unknown"
+                  ]
+                },
+                "citations": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "record_id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 100
+                      },
+                      "source_ids": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 100
+                        },
+                        "minItems": 1,
+                        "maxItems": 10
+                      }
+                    },
+                    "required": [
+                      "record_id",
+                      "source_ids"
+                    ]
+                  },
+                  "minItems": 0,
+                  "maxItems": 10
+                },
+                "assumptions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 500
+                  },
+                  "minItems": 0,
+                  "maxItems": 10
+                }
+              },
+              "required": [
+                "text",
+                "kind",
+                "citations",
+                "assumptions"
+              ]
+            },
+            "minItems": 0,
+            "maxItems": 5
+          },
+          "competitors_and_channels": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "relationship": {
+                  "enum": [
+                    "direct_competitor",
+                    "adjacent_competitor",
+                    "substitute",
+                    "channel",
+                    "potential_partner",
+                    "unclear"
+                  ]
+                },
+                "customer_job_overlap": {
+                  "type": "string",
+                  "minLength": 0,
+                  "maxLength": 700
+                },
+                "offering_evidence": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "record_id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 100
+                      },
+                      "source_ids": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 100
+                        },
+                        "minItems": 1,
+                        "maxItems": 10
+                      }
+                    },
+                    "required": [
+                      "record_id",
+                      "source_ids"
+                    ]
+                  },
+                  "minItems": 1,
+                  "maxItems": 10
+                },
+                "differentiation_hypotheses": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "text": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 2000
+                      },
+                      "kind": {
+                        "enum": [
+                          "source_fact",
+                          "analyst_inference",
+                          "user_provided",
+                          "unknown"
+                        ]
+                      },
+                      "citations": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "additionalProperties": false,
+                          "properties": {
+                            "record_id": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 100
+                            },
+                            "source_ids": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 100
+                              },
+                              "minItems": 1,
+                              "maxItems": 10
+                            }
+                          },
+                          "required": [
+                            "record_id",
+                            "source_ids"
+                          ]
+                        },
+                        "minItems": 0,
+                        "maxItems": 10
+                      },
+                      "assumptions": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 0,
+                          "maxLength": 500
+                        },
+                        "minItems": 0,
+                        "maxItems": 10
+                      }
+                    },
+                    "required": [
+                      "text",
+                      "kind",
+                      "citations",
+                      "assumptions"
+                    ]
+                  },
+                  "minItems": 0,
+                  "maxItems": 5
+                },
+                "commercial_terms_verified": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "name",
+                "relationship",
+                "customer_job_overlap",
+                "offering_evidence",
+                "differentiation_hypotheses",
+                "commercial_terms_verified"
+              ]
+            },
+            "minItems": 0,
+            "maxItems": 10
+          },
+          "critical_unknowns": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 0,
+              "maxLength": 800
+            },
+            "minItems": 0,
+            "maxItems": 20
+          },
+          "validation_plan": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "time_window": {
+                  "enum": [
+                    "days_1_30",
+                    "days_31_60",
+                    "days_61_90",
+                    "custom"
+                  ]
+                },
+                "action": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1200
+                },
+                "success_metric": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 500
+                },
+                "go_no_go_condition": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 700
+                },
+                "evidence_or_assumptions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "text": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 2000
+                      },
+                      "kind": {
+                        "enum": [
+                          "source_fact",
+                          "analyst_inference",
+                          "user_provided",
+                          "unknown"
+                        ]
+                      },
+                      "citations": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "additionalProperties": false,
+                          "properties": {
+                            "record_id": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 100
+                            },
+                            "source_ids": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 100
+                              },
+                              "minItems": 1,
+                              "maxItems": 10
+                            }
+                          },
+                          "required": [
+                            "record_id",
+                            "source_ids"
+                          ]
+                        },
+                        "minItems": 0,
+                        "maxItems": 10
+                      },
+                      "assumptions": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 0,
+                          "maxLength": 500
+                        },
+                        "minItems": 0,
+                        "maxItems": 10
+                      }
+                    },
+                    "required": [
+                      "text",
+                      "kind",
+                      "citations",
+                      "assumptions"
+                    ]
+                  },
+                  "minItems": 0,
+                  "maxItems": 5
+                }
+              },
+              "required": [
+                "time_window",
+                "action",
+                "success_metric",
+                "go_no_go_condition",
+                "evidence_or_assumptions"
+              ]
+            },
+            "minItems": 1,
+            "maxItems": 8
+          },
+          "record_ids_used": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "minItems": 0,
+            "maxItems": 50
+          }
+        },
+        "required": [
+          "country_code",
+          "status",
+          "recommendation",
+          "confidence",
+          "evidence_coverage",
+          "dimensions",
+          "entry_mode_options",
+          "competitors_and_channels",
+          "critical_unknowns",
+          "validation_plan",
+          "record_ids_used"
+        ]
+      },
+      "minItems": 1,
+      "maxItems": 11
+    },
+    "cross_country_tradeoffs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "kind": {
+            "enum": [
+              "source_fact",
+              "analyst_inference",
+              "user_provided",
+              "unknown"
+            ]
+          },
+          "citations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "record_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                "source_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100
+                  },
+                  "minItems": 1,
+                  "maxItems": 10
+                }
+              },
+              "required": [
+                "record_id",
+                "source_ids"
+              ]
+            },
+            "minItems": 0,
+            "maxItems": 10
+          },
+          "assumptions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 0,
+              "maxLength": 500
+            },
+            "minItems": 0,
+            "maxItems": 10
+          }
+        },
+        "required": [
+          "text",
+          "kind",
+          "citations",
+          "assumptions"
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 15
+    },
+    "missing_business_information": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 0,
+        "maxLength": 600
+      },
+      "minItems": 0,
+      "maxItems": 20
+    },
+    "disclaimer": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "schema_version",
+    "dataset_version",
+    "generated_at",
+    "mode",
+    "summary",
+    "comparison_order",
+    "ordering_status",
+    "countries",
+    "cross_country_tradeoffs",
+    "missing_business_information",
+    "disclaimer"
+  ]
+}

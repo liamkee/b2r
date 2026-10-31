@@ -1,0 +1,578 @@
+{
+  "mode": "retrieval_demo_only",
+  "selected_countries": [
+    "MY",
+    "TH",
+    "VN"
+  ],
+  "sector": "software_saas",
+  "results": [
+    {
+      "country_code": "MY",
+      "retrieval_method": "bounded_lexical_demo",
+      "no_country_attractiveness_score": true,
+      "records": [
+        {
+          "id": "MY-REG-DATA-001",
+          "topic": "regulation",
+          "subtopic": "data_protection",
+          "facts": [
+            "The Commissioner’s repository includes the amended PDPA framework, 2025 data-breach and DPO materials, cross-border transfer guidance and subsequent circulars."
+          ],
+          "analyst_inference": "Build a compliance workstream for personal-data processing; do not rely on a pre-amendment checklist.",
+          "unknowns": [
+            "Current activity-specific DPO, breach reporting and transfer obligations require checking the applicable instrument."
+          ],
+          "source_ids": [
+            "MY_PDPA"
+          ],
+          "source_support": "excerpt_supported",
+          "evidence_period": null,
+          "reviewed_on": "2026-10-31",
+          "review_due": "2026-11-30",
+          "retrieval_score_not_market_score": 0
+        },
+        {
+          "id": "MY-REG-EQUITY-001",
+          "topic": "regulation",
+          "subtopic": "foreign_ownership",
+          "facts": [
+            "MIDA permits 100% foreign equity for new manufacturing projects and expansion/diversification projects under the stated policy. Services may have licence-specific equity conditions imposed by relevant authorities."
+          ],
+          "analyst_inference": "Do not apply the manufacturing policy as a blanket rule for every Malaysian industry.",
+          "unknowns": [
+            "The exact service or manufacturing activity, licence and incentive eligibility have not been checked."
+          ],
+          "source_ids": [
+            "MY_EQUITY"
+          ],
+          "source_support": "excerpt_supported",
+          "evidence_period": null,
+          "reviewed_on": "2026-10-31",
+          "review_due": "2026-11-30",
+          "retrieval_score_not_market_score": 0
+        },
+        {
+          "id": "MY-DEMAND-DIGITAL-001",
+          "topic": "market_demand",
+          "subtopic": "documented_business_problem",
+          "facts": [
+            "OECD’s 2026 assessment describes digitalisation gaps among smaller firms, skills constraints and regulatory complexity affecting productivity."
+          ],
+          "analyst_inference": "A vertical SME workflow or training product is a testable hypothesis; validate operational savings and onboarding effort with real firms.",
+          "unknowns": [
+            "Buyer willingness to pay, purchasing authority and implementation budgets are not measured in this pack."
+          ],
+          "source_ids": [
+            "MY_OECD"
+          ],
+          "source_support": "excerpt_supported",
+          "evidence_period": "2026 assessment",
+          "reviewed_on": "2026-10-31",
+          "review_due": "2027-01-29",
+          "retrieval_score_not_market_score": 1.5
+        },
+        {
+          "id": "MY-DEMAND-OUTLOOK-001",
+          "topic": "market_demand",
+          "subtopic": "macro_context",
+          "facts": [
+            "BNM’s outlook discusses technology-related investment, digitalisation and tourism support associated with Visit Malaysia 2026."
+          ],
+          "analyst_inference": null,
+          "unknowns": [
+            "City-level demand and conversion into paying customers are not established."
+          ],
+          "source_ids": [
+            "MY_BNM"
+          ],
+          "source_support": "excerpt_supported",
+          "evidence_period": "2026 outlook",
+          "reviewed_on": "2026-10-31",
+          "review_due": "2027-01-29",
+          "retrieval_score_not_market_score": 1.5
+        },
+        {
+          "id": "ASEAN-COMP-STOREHUB",
+          "topic": "competition",
+          "subtopic": "company_reported_offering",
+          "facts": [
+            "StoreHub describes retail/F&B point-of-sale and business tools and identifies Malaysia, Thailand and the Philippines as markets."
+          ],
+          "analyst_inference": "A generic POS pitch needs a specific segment or workflow advantage. Test migration effort, integrations and measurable operator savings, not unsupported claims that the incumbent is weak.",
+          "unknowns": [
+            "Current pricing, market share, independent quality, customer satisfaction and precise service availability are not verified."
+          ],
+          "source_ids": [
+            "C_STOREHUB"
+          ],
+          "source_support": "excerpt_supported",
+          "evidence_period": null,
+          "reviewed_on": "2026-10-31",
+          "review_due": "2027-01-29",
+          "retrieval_score_not_market_score": 4.7185
+        },
+        {
+          "id": "MY-GAPS-001",
+          "topic": "research_gap",
+          "subtopic": "research_gap",
+          "facts": [],
+          "analyst_inference": "Resolve gaps relevant to this business before offering a definitive market-entry recommendation.",
+          "unknowns": [
+            "Activity-specific licences and service-sector equity conditions",
+            "Current tax, e-invoicing applicability and sector approvals",
+            "Segment-specific willingness to pay, acquisition cost and partner quotes",
+            "No exhaustive competition census, pricing survey or independent product-market-share dataset is included."
+          ],
+          "source_ids": [],
+          "source_support": "not_applicable",
+          "evidence_period": null,
+          "reviewed_on": "2026-10-31",
+          "review_due": "2027-01-29",
+          "retrieval_score_not_market_score": 0
+        }
+      ],
+      "gaps": [
+        "No relevant operational_risk record selected; do not interpret as absence in the market."
+      ],
+      "sources": [
+        {
+          "source_id": "C_STOREHUB",
+          "publisher": "StoreHub",
+          "title": "About StoreHub",
+          "url": "https://www.storehub.com/about-us",
+          "source_type": "company_first_party",
+          "publication_date": null,
+          "retrieved_on": "2026-10-31",
+          "access_method": "indexed_excerpt",
+          "verification_scope": "Supports the limited summary in linked records; not a complete legal, market, sanctions or competitor audit.",
+          "notes": ""
+        },
+        {
+          "source_id": "MY_BNM",
+          "publisher": "Bank Negara Malaysia",
+          "title": "Economic and Monetary Review 2025: outlook for 2026",
+          "url": "https://www.bnm.gov.my/publications/emr2025/ch2",
+          "source_type": "government",
+          "publication_date": null,
+          "retrieved_on": "2026-10-31",
+          "access_method": "indexed_excerpt",
+          "verification_scope": "Supports the limited summary in linked records; not a complete legal, market, sanctions or competitor audit.",
+          "notes": ""
+        },
+        {
+          "source_id": "MY_EQUITY",
+          "publisher": "Malaysian Investment Development Authority",
+          "title": "Equity policy and protection of foreign investment",
+          "url": "https://www.mida.gov.my/setting-up-content/equity-policy-protect-foreign-investment/",
+          "source_type": "government",
+          "publication_date": null,
+          "retrieved_on": "2026-10-31",
+          "access_method": "indexed_excerpt",
+          "verification_scope": "Supports the limited summary in linked records; not a complete legal, market, sanctions or competitor audit.",
+          "notes": ""
+        },
+        {
+          "source_id": "MY_OECD",
+          "publisher": "OECD",
+          "title": "Malaysia 2026: productivity, regulation and digitalisation",
+          "url": "https://www.oecd.org/en/publications/oecd-economic-surveys-malaysia-2026_9ab6b826-en/full-report/boosting-productivity-through-openness-smarter-regulation-and-digitalisation_90193963.html",
+          "source_type": "intergovernmental_research",
+          "publication_date": null,
+          "retrieved_on": "2026-10-31",
+          "access_method": "indexed_excerpt",
+          "verification_scope": "Supports the limited summary in linked records; not a complete legal, market, sanctions or competitor audit.",
+          "notes": "Month is established; exact publication day is not relied upon below."
+        },
+        {
+          "source_id": "MY_PDPA",
+          "publisher": "Personal Data Protection Commissioner Malaysia",
+          "title": "Act 709 and related circulars and guidelines",
+          "url": "https://www.pdp.gov.my/en/akta709/",
+          "source_type": "government",
+          "publication_date": null,
+          "retrieved_on": "2026-10-31",
+          "access_method": "indexed_excerpt",
+          "verification_scope": "Supports the limited summary in linked records; not a complete legal, market, sanctions or competitor audit.",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "country_code": "TH",
+      "retrieval_method": "bounded_lexical_demo",
+      "no_country_attractiveness_score": true,
+      "records": [
+        {
+          "id": "TH-REG-DPS-001",
+          "topic": "regulation",
+          "subtopic": "digital_platform_registration",
+          "facts": [
+            "ETDA publishes the decree and implementing rules for digital platform services subject to notification."
+          ],
+          "analyst_inference": null,
+          "unknowns": [
+            "Thresholds, foreign-operator scope, service classification and additional obligations require verification."
+          ],
+          "source_ids": [
+            "TH_DPS"
+          ],
+          "source_support": "excerpt_supported",
+          "evidence_period": null,
+          "reviewed_on": "2026-10-31",
+          "review_due": "2026-11-30",
+          "retrieval_score_not_market_score": 1.5
+        },
+        {
+          "id": "TH-REG-FBA-001",
+          "topic": "regulation",
+          "subtopic": "foreign_ownership",
+          "facts": [
+            "BOI explains restrictions and approvals under the Foreign Business Act. A September 2026 government release reports new exemptions for seven service categories under an August 2026 instrument, including certain related-company services and Type 1 telecommunications."
+          ],
+          "analyst_inference": "Do not assert that all foreign-owned services require the same licence or that all IT services are exempt.",
+          "unknowns": [
+            "Exact ownership structure, business list, exemption scope, BOI promotion and treaty rights are unknown."
+          ],
+          "source_ids": [
+            "TH_FBA",
+            "TH_EXEMPT"
+          ],
+          "source_support": "excerpt_supported",
+          "evidence_period": null,
+          "reviewed_on": "2026-10-31",
+          "review_due": "2026-11-30",
+          "retrieval_score_not_market_score": 0
+        },
+        {
+          "id": "TH-DEMAND-MANUF-001",
+          "topic": "market_demand",
+          "subtopic": "sector_opportunity_assessment",
+          "facts": [
+            "The World Bank’s February 2026 monitor examines advanced green manufacturing as a potential growth path."
+          ],
+          "analyst_inference": "Test energy efficiency, factory productivity or traceability with an identifiable industrial buyer, not a generic national launch.",
+          "unknowns": [
+            "Buyer budgets and willingness to adopt a particular solution have not been measured."
+          ],
+          "source_ids": [
+            "TH_WB_MANUF"
+          ],
+          "source_support": "excerpt_supported",
+          "evidence_period": "February 2026",
+          "reviewed_on": "2026-10-31",
+          "review_due": "2027-01-29",
+          "retrieval_score_not_market_score": 1.5
+        },
+        {
+          "id": "TH-DEMAND-SECTORS-001",
+          "topic": "market_demand",
+          "subtopic": "sector_opportunity_assessment",
+          "facts": [
+            "The World Bank’s September 2026 assessment identifies advanced manufacturing, sustainable/wellness tourism, digital services, agrifood and creative activities as potential growth engines."
+          ],
+          "analyst_inference": null,
+          "unknowns": [
+            "Customer-level unmet need, purchasing power and competitor prices remain unverified."
+          ],
+          "source_ids": [
+            "TH_WB_SECTORS"
+          ],
+          "source_support": "excerpt_supported",
+          "evidence_period": "September 2026",
+          "reviewed_on": "2026-10-31",
+          "review_due": "2027-01-29",
+          "retrieval_score_not_market_score": 1.5
+        },
+        {
+          "id": "ASEAN-COMP-STOREHUB",
+          "topic": "competition",
+          "subtopic": "company_reported_offering",
+          "facts": [
+            "StoreHub describes retail/F&B point-of-sale and business tools and identifies Malaysia, Thailand and the Philippines as markets."
+          ],
+          "analyst_inference": "A generic POS pitch needs a specific segment or workflow advantage. Test migration effort, integrations and measurable operator savings, not unsupported claims that the incumbent is weak.",
+          "unknowns": [
+            "Current pricing, market share, independent quality, customer satisfaction and precise service availability are not verified."
+          ],
+          "source_ids": [
+            "C_STOREHUB"
+          ],
+          "source_support": "excerpt_supported",
+          "evidence_period": null,
+          "reviewed_on": "2026-10-31",
+          "review_due": "2027-01-29",
+          "retrieval_score_not_market_score": 4.7185
+        },
+        {
+          "id": "TH-GAPS-001",
+          "topic": "research_gap",
+          "subtopic": "research_gap",
+          "facts": [],
+          "analyst_inference": "Resolve gaps relevant to this business before offering a definitive market-entry recommendation.",
+          "unknowns": [
+            "Exact Foreign Business Act exemption and business activity",
+            "Current privacy and platform-notification applicability",
+            "Local distribution, language support needs and competitor commercial terms",
+            "No exhaustive competition census, pricing survey or independent product-market-share dataset is included."
+          ],
+          "source_ids": [],
+          "source_support": "not_applicable",
+          "evidence_period": null,
+          "reviewed_on": "2026-10-31",
+          "review_due": "2027-01-29",
+          "retrieval_score_not_market_score": 0
+        }
+      ],
+      "gaps": [
+        "No relevant operational_risk record selected; do not interpret as absence in the market."
+      ],
+      "sources": [
+        {
+          "source_id": "C_STOREHUB",
+          "publisher": "StoreHub",
+          "title": "About StoreHub",
+          "url": "https://www.storehub.com/about-us",
+          "source_type": "company_first_party",
+          "publication_date": null,
+          "retrieved_on": "2026-10-31",
+          "access_method": "indexed_excerpt",
+          "verification_scope": "Supports the limited summary in linked records; not a complete legal, market, sanctions or competitor audit.",
+          "notes": ""
+        },
+        {
+          "source_id": "TH_DPS",
+          "publisher": "Electronic Transactions Development Agency",
+          "title": "Digital platform service laws and regulations",
+          "url": "https://www.etda.or.th/th/regulator/Digitalplatform/law.aspx",
+          "source_type": "government",
+          "publication_date": null,
+          "retrieved_on": "2026-10-31",
+          "access_method": "indexed_excerpt",
+          "verification_scope": "Supports the limited summary in linked records; not a complete legal, market, sanctions or competitor audit.",
+          "notes": ""
+        },
+        {
+          "source_id": "TH_EXEMPT",
+          "publisher": "Thailand Government Public Relations Department",
+          "title": "Foreign business service exemptions update",
+          "url": "https://thailand.prd.go.th/en/content/category/detail/id/2078/iid/539167",
+          "source_type": "government",
+          "publication_date": "2026-09-07",
+          "retrieved_on": "2026-10-31",
+          "access_method": "indexed_excerpt",
+          "verification_scope": "Supports the limited summary in linked records; not a complete legal, market, sanctions or competitor audit.",
+          "notes": ""
+        },
+        {
+          "source_id": "TH_FBA",
+          "publisher": "Thailand Board of Investment / OSOS",
+          "title": "Foreign Business Act guidance",
+          "url": "https://osos.boi.go.th/EN/how-to/147/",
+          "source_type": "government",
+          "publication_date": null,
+          "retrieved_on": "2026-10-31",
+          "access_method": "indexed_excerpt",
+          "verification_scope": "Supports the limited summary in linked records; not a complete legal, market, sanctions or competitor audit.",
+          "notes": ""
+        },
+        {
+          "source_id": "TH_WB_MANUF",
+          "publisher": "World Bank",
+          "title": "Thailand Economic Monitor: advanced green manufacturing",
+          "url": "https://www.worldbank.org/en/country/thailand/publication/thailand-economic-monitor-february-2026-advanced-green-manufacturing-for-growth",
+          "source_type": "intergovernmental_research",
+          "publication_date": null,
+          "retrieved_on": "2026-10-31",
+          "access_method": "indexed_excerpt",
+          "verification_scope": "Supports the limited summary in linked records; not a complete legal, market, sanctions or competitor audit.",
+          "notes": ""
+        },
+        {
+          "source_id": "TH_WB_SECTORS",
+          "publisher": "World Bank",
+          "title": "New engines for Thailand’s next growth phase",
+          "url": "https://www.worldbank.org/en/news/press-release/2026/09/03/world-bank-group-report-identifies-new-engines-for-thailand-s-next-phase-of-growth",
+          "source_type": "intergovernmental_research",
+          "publication_date": "2026-09-03",
+          "retrieved_on": "2026-10-31",
+          "access_method": "indexed_excerpt",
+          "verification_scope": "Supports the limited summary in linked records; not a complete legal, market, sanctions or competitor audit.",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "country_code": "VN",
+      "retrieval_method": "bounded_lexical_demo",
+      "no_country_attractiveness_score": true,
+      "records": [
+        {
+          "id": "VN-REG-DATA-001",
+          "topic": "regulation",
+          "subtopic": "data_protection",
+          "facts": [
+            "The Ministry of Public Security states that the Personal Data Protection Law took effect on 1 January 2026. The government lists Decree 356/2025 as an implementing instrument effective on that date."
+          ],
+          "analyst_inference": "Do not rely solely on an older Decree 13 checklist for a 2026 launch.",
+          "unknowns": [
+            "Processing category, cross-border transfer, assessment and reporting duties are not resolved for the proposed product."
+          ],
+          "source_ids": [
+            "VN_DATA",
+            "VN_DATA_DECREE"
+          ],
+          "source_support": "excerpt_supported",
+          "evidence_period": null,
+          "reviewed_on": "2026-10-31",
+          "review_due": "2026-11-30",
+          "retrieval_score_not_market_score": 0
+        },
+        {
+          "id": "VN-REG-INVEST-001",
+          "topic": "regulation",
+          "subtopic": "foreign_ownership",
+          "facts": [
+            "The government translation identifies Law 143/2025/QH15 as effective 1 March 2026. Article 8 distinguishes activities not open to foreign investors from activities subject to conditional market access."
+          ],
+          "analyst_inference": "Resolve the product’s activity and investment form before applying a generic incorporation sequence.",
+          "unknowns": [
+            "The applicable restricted list, investment/project registration route, sector conditions and implementing instruments require current review."
+          ],
+          "source_ids": [
+            "VN_INVEST"
+          ],
+          "source_support": "page_supported",
+          "evidence_period": null,
+          "reviewed_on": "2026-10-31",
+          "review_due": "2026-11-30",
+          "retrieval_score_not_market_score": 0
+        },
+        {
+          "id": "VN-DEMAND-MACRO-001",
+          "topic": "market_demand",
+          "subtopic": "macro_context",
+          "facts": [
+            "The World Bank’s October 2026 monitoring abstract describes strong Q3 activity associated with industry, construction and investment, alongside substantial import intensity."
+          ],
+          "analyst_inference": null,
+          "unknowns": [
+            "Firm-level addressable spend and import dependency of a specific product are unknown."
+          ],
+          "source_ids": [
+            "VN_WB_MACRO"
+          ],
+          "source_support": "excerpt_supported",
+          "evidence_period": "2026-Q3",
+          "reviewed_on": "2026-10-31",
+          "review_due": "2027-01-29",
+          "retrieval_score_not_market_score": 1.5
+        },
+        {
+          "id": "VN-COMP-MISA",
+          "topic": "competition",
+          "subtopic": "company_reported_offering",
+          "facts": [
+            "MISA AMIS presents accounting/finance, HR, CRM and office-management capabilities for businesses."
+          ],
+          "analyst_inference": "Validate Vietnamese workflow requirements and switching costs before offering a generic replacement. A specialized integration may be more testable than an all-in-one challenge.",
+          "unknowns": [
+            "Current pricing, market share, independent quality, customer satisfaction and precise service availability are not verified."
+          ],
+          "source_ids": [
+            "C_MISA"
+          ],
+          "source_support": "excerpt_supported",
+          "evidence_period": null,
+          "reviewed_on": "2026-10-31",
+          "review_due": "2027-01-29",
+          "retrieval_score_not_market_score": 2.5702
+        },
+        {
+          "id": "VN-GAPS-001",
+          "topic": "research_gap",
+          "subtopic": "research_gap",
+          "facts": [],
+          "analyst_inference": "Resolve gaps relevant to this business before offering a definitive market-entry recommendation.",
+          "unknowns": [
+            "Current investment implementing instruments and restricted activities",
+            "Current tax, e-commerce, cybersecurity and sector-specific approvals",
+            "Buyer segment, local-language workflow and competitor commercial terms",
+            "No exhaustive competition census, pricing survey or independent product-market-share dataset is included."
+          ],
+          "source_ids": [],
+          "source_support": "not_applicable",
+          "evidence_period": null,
+          "reviewed_on": "2026-10-31",
+          "review_due": "2027-01-29",
+          "retrieval_score_not_market_score": 0
+        }
+      ],
+      "gaps": [
+        "No relevant operational_risk record selected; do not interpret as absence in the market."
+      ],
+      "sources": [
+        {
+          "source_id": "C_MISA",
+          "publisher": "MISA",
+          "title": "MISA AMIS platform",
+          "url": "https://amis.misa.vn/en/",
+          "source_type": "company_first_party",
+          "publication_date": null,
+          "retrieved_on": "2026-10-31",
+          "access_method": "indexed_excerpt",
+          "verification_scope": "Supports the limited summary in linked records; not a complete legal, market, sanctions or competitor audit.",
+          "notes": ""
+        },
+        {
+          "source_id": "VN_DATA",
+          "publisher": "Ministry of Public Security Viet Nam",
+          "title": "Personal Data Protection Law effective 1 January 2026",
+          "url": "https://www.bocongan.gov.vn/bai-viet/luat-bao-ve-du-lieu-ca-nhan-chinh-thuc-co-hieu-luc-thi-hanh-tu-ngay-01-01-2026-1767186124",
+          "source_type": "government",
+          "publication_date": null,
+          "retrieved_on": "2026-10-31",
+          "access_method": "indexed_excerpt",
+          "verification_scope": "Supports the limited summary in linked records; not a complete legal, market, sanctions or competitor audit.",
+          "notes": ""
+        },
+        {
+          "source_id": "VN_DATA_DECREE",
+          "publisher": "Viet Nam Government Portal",
+          "title": "Decree 356/2025 implementing personal data protection law",
+          "url": "https://chinhphu.vn/?classid=0&docid=216387&pageid=27160",
+          "source_type": "primary_law_index",
+          "publication_date": null,
+          "retrieved_on": "2026-10-31",
+          "access_method": "indexed_excerpt",
+          "verification_scope": "Supports the limited summary in linked records; not a complete legal, market, sanctions or competitor audit.",
+          "notes": ""
+        },
+        {
+          "source_id": "VN_INVEST",
+          "publisher": "Viet Nam Government News",
+          "title": "Law on Investment 2025: official English translation",
+          "url": "https://en.baochinhphu.vn/viet-nams-law-on-investment-2025-111260731145214387.htm",
+          "source_type": "primary_law_translation",
+          "publication_date": "2026-07-31",
+          "retrieved_on": "2026-10-31",
+          "access_method": "full_page",
+          "verification_scope": "Supports the limited summary in linked records; not a complete legal, market, sanctions or competitor audit.",
+          "notes": "Translation identifies Law 143/2025/QH15, effective 1 March 2026; original Vietnamese text controls legal interpretation."
+        },
+        {
+          "source_id": "VN_WB_MACRO",
+          "publisher": "World Bank",
+          "title": "Viet Nam macro monitoring, October 2026",
+          "url": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/099014110082634935",
+          "source_type": "intergovernmental_research",
+          "publication_date": "2026-10-08",
+          "retrieved_on": "2026-10-31",
+          "access_method": "indexed_excerpt",
+          "verification_scope": "Supports the limited summary in linked records; not a complete legal, market, sanctions or competitor audit.",
+          "notes": "Repository abstract reviewed; report tables were not extracted."
+        }
+      ]
+    }
+  ]
+}

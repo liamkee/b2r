@@ -1,0 +1,15 @@
+test_all_eleven_countries_have_three_categories (__main__.PackTests.test_all_eleven_countries_have_three_categories) ... ok
+test_all_retrieved_sources_resolve (__main__.PackTests.test_all_retrieved_sources_resolve) ... ok
+test_gap_records_are_not_facts (__main__.PackTests.test_gap_records_are_not_facts) ... ok
+test_invalid_country_rejected (__main__.PackTests.test_invalid_country_rejected) ... ok
+test_no_cross_country_evidence_leak (__main__.PackTests.test_no_cross_country_evidence_leak) ... ok
+test_no_sourced_market_share_or_pricing_in_starter (__main__.PackTests.test_no_sourced_market_share_or_pricing_in_starter) ... ok
+test_pre_revenue_example_schema_allows_zero (__main__.PackTests.test_pre_revenue_example_schema_allows_zero) ... ok
+test_retriever_has_no_ai_or_success_score (__main__.PackTests.test_retriever_has_no_ai_or_success_score) ... ok
+test_selected_country_set_preserved (__main__.PackTests.test_selected_country_set_preserved) ... ok
+test_unknown_industry_does_not_get_fake_competitors (__main__.PackTests.test_unknown_industry_does_not_get_fake_competitors) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 1.106s
+
+OK

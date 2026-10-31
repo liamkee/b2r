@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "checked_at": "2026-10-31T05:39:27.831208+00:00",
+  "records": 78,
+  "sources": 77,
+  "countries": 11,
+  "topics": {
+    "regional_context": 1,
+    "regulation": 24,
+    "market_demand": 18,
+    "operational_risk": 1,
+    "competition": 23,
+    "research_gap": 11
+  },
+  "json_schema_validation": true,
+  "checks": [
+    "JSON parsing",
+    "unique IDs",
+    "country/sector allowlists",
+    "source references",
+    "date ordering",
+    "country category coverage",
+    "gap/fact separation",
+    "competitor unknown metrics",
+    "country profile references",
+    "ingestion document alignment"
+  ],
+  "not_checked": [
+    "live source URLs",
+    "complete current legal accuracy",
+    "market-share verification",
+    "live model behavior",
+    "application integration",
+    "deployment"
+  ],
+  "dataset_sha256": "c15630baf53f5a5b5b169c8dc0022455ad7688b5593990cd16e923b77ef74938"
+}

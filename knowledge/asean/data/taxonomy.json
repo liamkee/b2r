@@ -1,0 +1,112 @@
+{
+  "countries": [
+    {
+      "code": "BN",
+      "name": "Brunei Darussalam",
+      "aliases": [
+        "Brunei",
+        "Brunei Darussalam"
+      ]
+    },
+    {
+      "code": "KH",
+      "name": "Cambodia",
+      "aliases": [
+        "Cambodia"
+      ]
+    },
+    {
+      "code": "ID",
+      "name": "Indonesia",
+      "aliases": [
+        "Indonesia"
+      ]
+    },
+    {
+      "code": "LA",
+      "name": "Lao PDR",
+      "aliases": [
+        "Laos",
+        "Lao PDR",
+        "Lao People’s Democratic Republic"
+      ]
+    },
+    {
+      "code": "MY",
+      "name": "Malaysia",
+      "aliases": [
+        "Malaysia"
+      ]
+    },
+    {
+      "code": "MM",
+      "name": "Myanmar",
+      "aliases": [
+        "Myanmar"
+      ]
+    },
+    {
+      "code": "PH",
+      "name": "Philippines",
+      "aliases": [
+        "Philippines"
+      ]
+    },
+    {
+      "code": "SG",
+      "name": "Singapore",
+      "aliases": [
+        "Singapore"
+      ]
+    },
+    {
+      "code": "TH",
+      "name": "Thailand",
+      "aliases": [
+        "Thailand"
+      ]
+    },
+    {
+      "code": "TL",
+      "name": "Timor-Leste",
+      "aliases": [
+        "Timor-Leste",
+        "East Timor"
+      ]
+    },
+    {
+      "code": "VN",
+      "name": "Viet Nam",
+      "aliases": [
+        "Vietnam",
+        "Viet Nam"
+      ]
+    }
+  ],
+  "sectors": [
+    "general",
+    "software_saas",
+    "fintech_payments",
+    "ecommerce_retail",
+    "logistics",
+    "food_agriculture",
+    "manufacturing",
+    "climate_energy",
+    "tourism_hospitality",
+    "healthcare",
+    "telecom",
+    "education",
+    "professional_services",
+    "other"
+  ],
+  "topics": [
+    "competition",
+    "market_demand",
+    "operational_risk",
+    "regional_context",
+    "regulation",
+    "research_gap"
+  ],
+  "country_code_standard": "ISO 3166-1 alpha-2",
+  "sector_tags_are_retrieval_hints_not_verified_complete_sector_coverage": true
+}

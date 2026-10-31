@@ -1,0 +1,522 @@
+[
+  {
+    "country_code": "BN",
+    "country_name": "Brunei Darussalam",
+    "reviewed_on": "2026-10-31",
+    "coverage": "starter_not_exhaustive",
+    "regulatory_record_ids": [
+      "BN-REG-ENTRY-001",
+      "BN-REG-DATA-001"
+    ],
+    "market_record_ids": [
+      "BN-DEMAND-ACTIVITY-001",
+      "BN-DEMAND-PRIORITY-001"
+    ],
+    "competition_record_ids": [
+      "BN-COMP-BIBD",
+      "BN-COMP-GOMAMAM",
+      "ASEAN-COMP-JOLLIBEE"
+    ],
+    "risk_record_ids": [],
+    "gap_record_ids": [
+      "BN-GAPS-001"
+    ],
+    "initial_test_hypothesis": {
+      "label": "Narrow B2B or merchant-workflow pilot",
+      "analysis_not_observed_fact": true,
+      "supporting_record_ids": [
+        "BN-DEMAND-ACTIVITY-001",
+        "BN-DEMAND-PRIORITY-001",
+        "BN-COMP-BIBD",
+        "BN-COMP-GOMAMAM"
+      ],
+      "suggested_test": "Interview a small set of identifiable organizational or merchant buyers before committing broad distribution; validate contract value, payment integration and support needs."
+    },
+    "not_established": [
+      "Product-market fit",
+      "Product-specific TAM/SAM/SOM",
+      "Launch cost or time guarantee",
+      "Investor eligibility",
+      "Market share and competitor pricing",
+      "Affordability based on revenue alone"
+    ],
+    "priority_research_gaps": [
+      "Sector-specific licences and ownership exceptions",
+      "Product-market size and customer budgets",
+      "Foreign-worker rules and current merchant-onboarding conditions"
+    ]
+  },
+  {
+    "country_code": "KH",
+    "country_name": "Cambodia",
+    "reviewed_on": "2026-10-31",
+    "coverage": "starter_not_exhaustive",
+    "regulatory_record_ids": [
+      "KH-REG-ENTRY-001",
+      "KH-REG-ECOM-001"
+    ],
+    "market_record_ids": [
+      "KH-DEMAND-RESILIENCE-001"
+    ],
+    "competition_record_ids": [
+      "ASEAN-COMP-GRAB",
+      "KH-COMP-PAYWAY",
+      "KH-COMP-WING"
+    ],
+    "risk_record_ids": [
+      "KH-RISK-COST-001"
+    ],
+    "gap_record_ids": [
+      "KH-GAPS-001"
+    ],
+    "initial_test_hypothesis": {
+      "label": "Merchant operations or export-linked B2B validation",
+      "analysis_not_observed_fact": true,
+      "supporting_record_ids": [
+        "KH-DEMAND-RESILIENCE-001",
+        "KH-RISK-COST-001",
+        "KH-COMP-PAYWAY",
+        "KH-COMP-WING"
+      ],
+      "suggested_test": "Test collections/reconciliation or an export-chain workflow with one partner; separately model energy and transport exposure rather than assuming consumer demand is strong."
+    },
+    "not_established": [
+      "Product-market fit",
+      "Product-specific TAM/SAM/SOM",
+      "Launch cost or time guarantee",
+      "Investor eligibility",
+      "Market share and competitor pricing",
+      "Affordability based on revenue alone"
+    ],
+    "priority_research_gaps": [
+      "Current comprehensive personal-data requirements and sector interpretations",
+      "Foreign land/ownership rules for the actual entry mode",
+      "Current product-level competitor prices and consumer affordability"
+    ]
+  },
+  {
+    "country_code": "ID",
+    "country_name": "Indonesia",
+    "reviewed_on": "2026-10-31",
+    "coverage": "starter_not_exhaustive",
+    "regulatory_record_ids": [
+      "ID-REG-OSS-001",
+      "ID-REG-CAPITAL-001",
+      "ID-REG-PSE-001"
+    ],
+    "market_record_ids": [
+      "ID-DEMAND-MACRO-001",
+      "ID-DEMAND-PAYMENTS-001"
+    ],
+    "competition_record_ids": [
+      "ASEAN-COMP-LAZADA",
+      "ASEAN-COMP-GRAB",
+      "ASEAN-COMP-NINJA",
+      "ID-COMP-MEKARI",
+      "ID-COMP-INDOFOOD"
+    ],
+    "risk_record_ids": [],
+    "gap_record_ids": [
+      "ID-GAPS-001"
+    ],
+    "initial_test_hypothesis": {
+      "label": "One-city, one-segment launch test",
+      "analysis_not_observed_fact": true,
+      "supporting_record_ids": [
+        "ID-DEMAND-MACRO-001",
+        "ID-DEMAND-PAYMENTS-001",
+        "ID-COMP-MEKARI"
+      ],
+      "suggested_test": "Start with a named city, customer segment and channel; compare local workflow integration, acquisition costs and delivery/settlement economics before geographic expansion."
+    },
+    "not_established": [
+      "Product-market fit",
+      "Product-specific TAM/SAM/SOM",
+      "Launch cost or time guarantee",
+      "Investor eligibility",
+      "Market share and competitor pricing",
+      "Affordability based on revenue alone"
+    ],
+    "priority_research_gaps": [
+      "Original BKPM capital rules, investment thresholds and KBLI exceptions",
+      "Personal-data law, tax and product approvals for the proposed activity",
+      "City/island-specific logistics and channel economics"
+    ]
+  },
+  {
+    "country_code": "LA",
+    "country_name": "Lao PDR",
+    "reviewed_on": "2026-10-31",
+    "coverage": "starter_not_exhaustive",
+    "regulatory_record_ids": [
+      "LA-REG-INVEST-001",
+      "LA-REG-ECOM-001"
+    ],
+    "market_record_ids": [
+      "LA-DEMAND-MACRO-001"
+    ],
+    "competition_record_ids": [
+      "LA-COMP-BCEL",
+      "LA-COMP-LOCA"
+    ],
+    "risk_record_ids": [],
+    "gap_record_ids": [
+      "LA-GAPS-001"
+    ],
+    "initial_test_hypothesis": {
+      "label": "Partner-led affordability and payment pilot",
+      "analysis_not_observed_fact": true,
+      "supporting_record_ids": [
+        "LA-DEMAND-MACRO-001",
+        "LA-COMP-BCEL",
+        "LA-COMP-LOCA"
+      ],
+      "suggested_test": "Verify local settlement and actual payer budgets with a local partner; test usage, collection success and foreign-currency cost exposure."
+    },
+    "not_established": [
+      "Product-market fit",
+      "Product-specific TAM/SAM/SOM",
+      "Launch cost or time guarantee",
+      "Investor eligibility",
+      "Market share and competitor pricing",
+      "Affordability based on revenue alone"
+    ],
+    "priority_research_gaps": [
+      "Original investment-law commencement and implementing rules",
+      "Current data, foreign-ownership, currency and remittance requirements",
+      "Provincial coverage, purchasing power and current competitor pricing"
+    ]
+  },
+  {
+    "country_code": "MY",
+    "country_name": "Malaysia",
+    "reviewed_on": "2026-10-31",
+    "coverage": "starter_not_exhaustive",
+    "regulatory_record_ids": [
+      "MY-REG-EQUITY-001",
+      "MY-REG-MANUFACTURING-001",
+      "MY-REG-DATA-001"
+    ],
+    "market_record_ids": [
+      "MY-DEMAND-DIGITAL-001",
+      "MY-DEMAND-OUTLOOK-001"
+    ],
+    "competition_record_ids": [
+      "ASEAN-COMP-LAZADA",
+      "ASEAN-COMP-GRAB",
+      "ASEAN-COMP-NINJA",
+      "ASEAN-COMP-STOREHUB",
+      "ASEAN-COMP-IHH",
+      "ASEAN-COMP-JOLLIBEE"
+    ],
+    "risk_record_ids": [],
+    "gap_record_ids": [
+      "MY-GAPS-001"
+    ],
+    "initial_test_hypothesis": {
+      "label": "Vertical SME productivity pilot",
+      "analysis_not_observed_fact": true,
+      "supporting_record_ids": [
+        "MY-DEMAND-DIGITAL-001",
+        "ASEAN-COMP-STOREHUB"
+      ],
+      "suggested_test": "Choose one operational bottleneck and customer vertical; test onboarding time, willingness to pay and measured labor/error savings against existing tools."
+    },
+    "not_established": [
+      "Product-market fit",
+      "Product-specific TAM/SAM/SOM",
+      "Launch cost or time guarantee",
+      "Investor eligibility",
+      "Market share and competitor pricing",
+      "Affordability based on revenue alone"
+    ],
+    "priority_research_gaps": [
+      "Activity-specific licences and service-sector equity conditions",
+      "Current tax, e-invoicing applicability and sector approvals",
+      "Segment-specific willingness to pay, acquisition cost and partner quotes"
+    ]
+  },
+  {
+    "country_code": "MM",
+    "country_name": "Myanmar",
+    "reviewed_on": "2026-10-31",
+    "coverage": "starter_not_exhaustive",
+    "regulatory_record_ids": [
+      "MM-REG-INVEST-001",
+      "MM-REG-SANCTIONS-001"
+    ],
+    "market_record_ids": [
+      "MM-DEMAND-RISK-001"
+    ],
+    "competition_record_ids": [
+      "ASEAN-COMP-GRAB",
+      "MM-COMP-WAVE",
+      "MM-COMP-KBZPAY"
+    ],
+    "risk_record_ids": [],
+    "gap_record_ids": [
+      "MM-GAPS-001"
+    ],
+    "initial_test_hypothesis": {
+      "label": "Enhanced review before commercial commitment",
+      "analysis_not_observed_fact": true,
+      "supporting_record_ids": [
+        "MM-REG-SANCTIONS-001",
+        "MM-DEMAND-RISK-001"
+      ],
+      "suggested_test": "Do not commit capital or counterparties on this pack alone; first resolve legal/sanctions nexus, ownership, payment route and local operating conditions."
+    },
+    "not_established": [
+      "Product-market fit",
+      "Product-specific TAM/SAM/SOM",
+      "Launch cost or time guarantee",
+      "Investor eligibility",
+      "Market share and competitor pricing",
+      "Affordability based on revenue alone"
+    ],
+    "priority_research_gaps": [
+      "Live sanctions lists, beneficial ownership and applicable jurisdictions",
+      "Current digital/cybersecurity, banking and foreign-exchange rules",
+      "Local security, power, connectivity, delivery and customer payment reliability"
+    ]
+  },
+  {
+    "country_code": "PH",
+    "country_name": "Philippines",
+    "reviewed_on": "2026-10-31",
+    "coverage": "starter_not_exhaustive",
+    "regulatory_record_ids": [
+      "PH-REG-OWNERSHIP-001",
+      "PH-REG-DATA-001"
+    ],
+    "market_record_ids": [
+      "PH-DEMAND-DIGITAL-001",
+      "PH-DEMAND-ICT-001"
+    ],
+    "competition_record_ids": [
+      "ASEAN-COMP-LAZADA",
+      "ASEAN-COMP-GRAB",
+      "ASEAN-COMP-NINJA",
+      "ASEAN-COMP-STOREHUB",
+      "PH-COMP-GCASH",
+      "ASEAN-COMP-JOLLIBEE"
+    ],
+    "risk_record_ids": [],
+    "gap_record_ids": [
+      "PH-GAPS-001"
+    ],
+    "initial_test_hypothesis": {
+      "label": "Automation or merchant-workflow pilot",
+      "analysis_not_observed_fact": true,
+      "supporting_record_ids": [
+        "PH-DEMAND-ICT-001",
+        "PH-DEMAND-DIGITAL-001",
+        "PH-COMP-GCASH"
+      ],
+      "suggested_test": "Test a specific services/merchant workflow with observable buyer ROI; separate digitally active customers from those with budget and buying authority."
+    },
+    "not_established": [
+      "Product-market fit",
+      "Product-specific TAM/SAM/SOM",
+      "Launch cost or time guarantee",
+      "Investor eligibility",
+      "Market share and competitor pricing",
+      "Affordability based on revenue alone"
+    ],
+    "priority_research_gaps": [
+      "Exact activity under the 13th negative list and capital exceptions",
+      "Sector approvals, tax and employer requirements",
+      "Buyer budgets and current local competitor pricing"
+    ]
+  },
+  {
+    "country_code": "SG",
+    "country_name": "Singapore",
+    "reviewed_on": "2026-10-31",
+    "coverage": "starter_not_exhaustive",
+    "regulatory_record_ids": [
+      "SG-REG-ENTRY-001",
+      "SG-REG-DATA-001"
+    ],
+    "market_record_ids": [
+      "SG-DEMAND-MACRO-001"
+    ],
+    "competition_record_ids": [
+      "ASEAN-COMP-LAZADA",
+      "ASEAN-COMP-GRAB",
+      "ASEAN-COMP-NINJA",
+      "SG-COMP-XERO",
+      "ASEAN-COMP-IHH",
+      "ASEAN-COMP-JOLLIBEE"
+    ],
+    "risk_record_ids": [],
+    "gap_record_ids": [
+      "SG-GAPS-001"
+    ],
+    "initial_test_hypothesis": {
+      "label": "Narrow specialist B2B use-case validation",
+      "analysis_not_observed_fact": true,
+      "supporting_record_ids": [
+        "SG-DEMAND-MACRO-001",
+        "SG-COMP-XERO",
+        "ASEAN-COMP-IHH"
+      ],
+      "suggested_test": "A focused accounting integration or sector-specific workflow is a hypothesis, not a demand finding; require buyer interviews and evidence of payment before recommending scale."
+    },
+    "not_established": [
+      "Product-market fit",
+      "Product-specific TAM/SAM/SOM",
+      "Launch cost or time guarantee",
+      "Investor eligibility",
+      "Market share and competitor pricing",
+      "Affordability based on revenue alone"
+    ],
+    "priority_research_gaps": [
+      "Activity-specific financial, health, education or import permissions",
+      "Tax, employment, transfer safeguards and procurement conditions",
+      "Customer acquisition costs, sales-cycle length and segment-specific demand"
+    ]
+  },
+  {
+    "country_code": "TH",
+    "country_name": "Thailand",
+    "reviewed_on": "2026-10-31",
+    "coverage": "starter_not_exhaustive",
+    "regulatory_record_ids": [
+      "TH-REG-FBA-001",
+      "TH-REG-DPS-001"
+    ],
+    "market_record_ids": [
+      "TH-DEMAND-MANUF-001",
+      "TH-DEMAND-SECTORS-001"
+    ],
+    "competition_record_ids": [
+      "ASEAN-COMP-LAZADA",
+      "ASEAN-COMP-GRAB",
+      "ASEAN-COMP-NINJA",
+      "ASEAN-COMP-STOREHUB",
+      "TH-COMP-CPF"
+    ],
+    "risk_record_ids": [],
+    "gap_record_ids": [
+      "TH-GAPS-001"
+    ],
+    "initial_test_hypothesis": {
+      "label": "Industrial or sector-specific partner pilot",
+      "analysis_not_observed_fact": true,
+      "supporting_record_ids": [
+        "TH-DEMAND-MANUF-001",
+        "TH-DEMAND-SECTORS-001",
+        "TH-COMP-CPF"
+      ],
+      "suggested_test": "Select an identifiable factory, food or tourism buyer and validate a productivity problem; investigate the exact foreign-business and platform conditions early."
+    },
+    "not_established": [
+      "Product-market fit",
+      "Product-specific TAM/SAM/SOM",
+      "Launch cost or time guarantee",
+      "Investor eligibility",
+      "Market share and competitor pricing",
+      "Affordability based on revenue alone"
+    ],
+    "priority_research_gaps": [
+      "Exact Foreign Business Act exemption and business activity",
+      "Current privacy and platform-notification applicability",
+      "Local distribution, language support needs and competitor commercial terms"
+    ]
+  },
+  {
+    "country_code": "TL",
+    "country_name": "Timor-Leste",
+    "reviewed_on": "2026-10-31",
+    "coverage": "starter_not_exhaustive",
+    "regulatory_record_ids": [
+      "TL-REG-ACCESSION-001",
+      "TL-REG-ENTRY-001"
+    ],
+    "market_record_ids": [
+      "TL-DEMAND-TRANSFORMATION-001",
+      "TL-DEMAND-PAYMENTS-001"
+    ],
+    "competition_record_ids": [
+      "TL-COMP-MOSAN",
+      "TL-COMP-TPAY",
+      "TL-COMP-TELKOMCEL"
+    ],
+    "risk_record_ids": [],
+    "gap_record_ids": [
+      "TL-GAPS-001"
+    ],
+    "initial_test_hypothesis": {
+      "label": "Small, partner-led market validation",
+      "analysis_not_observed_fact": true,
+      "supporting_record_ids": [
+        "TL-DEMAND-TRANSFORMATION-001",
+        "TL-DEMAND-PAYMENTS-001",
+        "TL-COMP-MOSAN"
+      ],
+      "suggested_test": "Validate a small cohort of real buyers, payment acceptance and connectivity; do not size the market from ASEAN accession or development needs alone."
+    },
+    "not_established": [
+      "Product-market fit",
+      "Product-specific TAM/SAM/SOM",
+      "Launch cost or time guarantee",
+      "Investor eligibility",
+      "Market share and competitor pricing",
+      "Affordability based on revenue alone"
+    ],
+    "priority_research_gaps": [
+      "Sector-specific rules, customs and effective trade-agreement schedules",
+      "Current privacy, payments, immigration and tax requirements",
+      "City-level buyer counts, connectivity and verified commercial-channel terms"
+    ]
+  },
+  {
+    "country_code": "VN",
+    "country_name": "Viet Nam",
+    "reviewed_on": "2026-10-31",
+    "coverage": "starter_not_exhaustive",
+    "regulatory_record_ids": [
+      "VN-REG-INVEST-001",
+      "VN-REG-DATA-001"
+    ],
+    "market_record_ids": [
+      "VN-DEMAND-MACRO-001",
+      "VN-DEMAND-TRADE-001"
+    ],
+    "competition_record_ids": [
+      "ASEAN-COMP-LAZADA",
+      "ASEAN-COMP-GRAB",
+      "ASEAN-COMP-NINJA",
+      "VN-COMP-MISA",
+      "ASEAN-COMP-JOLLIBEE"
+    ],
+    "risk_record_ids": [],
+    "gap_record_ids": [
+      "VN-GAPS-001"
+    ],
+    "initial_test_hypothesis": {
+      "label": "Localized B2B workflow or supply-chain pilot",
+      "analysis_not_observed_fact": true,
+      "supporting_record_ids": [
+        "VN-DEMAND-MACRO-001",
+        "VN-DEMAND-TRADE-001",
+        "VN-COMP-MISA"
+      ],
+      "suggested_test": "Test an export/manufacturing or business-workflow niche with local-language implementation and integration checks before proposing a broad software replacement."
+    },
+    "not_established": [
+      "Product-market fit",
+      "Product-specific TAM/SAM/SOM",
+      "Launch cost or time guarantee",
+      "Investor eligibility",
+      "Market share and competitor pricing",
+      "Affordability based on revenue alone"
+    ],
+    "priority_research_gaps": [
+      "Current investment implementing instruments and restricted activities",
+      "Current tax, e-commerce, cybersecurity and sector-specific approvals",
+      "Buyer segment, local-language workflow and competitor commercial terms"
+    ]
+  }
+]
