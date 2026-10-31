@@ -13,9 +13,11 @@ interface AseanCountryProps {
   idPrefix: string;
   /** True while this country is hovered or focused. */
   isActive: boolean;
+  /** True when this country is the current selection. */
+  selected?: boolean;
   onActivate: (id: string | null) => void;
   /** Fired on click / Enter / Space with the ISO-2 code. */
-  onSelect?: (code: string) => void;
+  onSelect?: (code: string | null) => void;
   /** Reduced-motion flag: skips the staggered rise. */
   reducedMotion: boolean;
 }
@@ -32,6 +34,7 @@ export function AseanCountry({
   index,
   idPrefix,
   isActive,
+  selected = false,
   onActivate,
   onSelect,
   reducedMotion,
@@ -72,12 +75,14 @@ export function AseanCountry({
       onFocus={() => onActivate(id)}
       onBlur={() => onActivate(null)}
       onClick={() => {
-        if (code) onSelect?.(code);
+        if (!code) return;
+        /* Clicking the framed country again returns to the ASEAN view. */
+        onSelect?.(selected ? null : code);
       }}
       onKeyDown={(e) => {
         if ((e.key === "Enter" || e.key === " ") && code) {
           e.preventDefault();
-          onSelect?.(code);
+          onSelect?.(selected ? null : code);
         }
       }}
       initial={reducedMotion ? { opacity: 0 } : { opacity: 0, scale: 0.96 }}
@@ -99,11 +104,15 @@ export function AseanCountry({
         d={geometry.path}
         className={cn(
           "transition-[fill,stroke-opacity] duration-200",
-          isActive ? "fill-gold-400/45" : "fill-gold-400/25",
+          selected
+            ? "fill-gold-400/40"
+            : isActive
+              ? "fill-gold-400/45"
+              : "fill-gold-400/25",
         )}
         stroke="var(--color-gold-400)"
-        strokeWidth={isActive ? 1.1 : 0.5}
-        strokeOpacity={isActive ? 0.95 : 0.4}
+        strokeWidth={isActive || selected ? 1.1 : 0.5}
+        strokeOpacity={isActive || selected ? 0.95 : 0.4}
         vectorEffect="non-scaling-stroke"
       />
       {/* Soft glow that fades in on hover/focus. */}
@@ -113,7 +122,7 @@ export function AseanCountry({
         fill="none"
         stroke="var(--color-gold-400)"
         strokeWidth={2.5}
-        strokeOpacity={isActive ? 0.28 : 0}
+        strokeOpacity={isActive || selected ? 0.28 : 0}
         vectorEffect="non-scaling-stroke"
         style={{ filter: "blur(2px)" }}
       />

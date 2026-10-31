@@ -10,7 +10,10 @@ import { EASE, layoutIndicator } from "@/lib/motion";
 import { cn } from "@/lib/cn";
 
 function isActive(pathname: string, itemPath: string, label: string): boolean {
-  if (label === "Explore" && pathname.startsWith("/countries")) return true;
+  /* Explore is an in-page anchor on the home route, so only Home is the
+     "current page"; Explore highlights on hash navigation instead. */
+  if (label === "Explore") return false;
+  if (itemPath.includes("#")) return false;
   return pathname === itemPath;
 }
 
@@ -68,7 +71,7 @@ export function Navbar(): ReactElement {
 
           <div className="hidden md:block">
             <Link
-              href="/compare"
+              href="/match"
               className="rounded-full bg-gold-400 px-4 py-2 text-sm font-semibold text-black transition-colors duration-200 hover:bg-gold-300"
             >
               Find matches
